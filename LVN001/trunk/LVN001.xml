@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<blankett xmlns="https://www.eyedoc.se/schemas/form/lvn001/2">
+  <patientED1>
+    <adressED1 typ="H">
+      <adresstypED1 typ="STR">
+        <del />
+      </adresstypED1>
+      <adresstypED1 typ="PNR">
+        <del />
+      </adresstypED1>
+      <adresstypED1 typ="PAD">
+        <del />
+      </adresstypED1>
+    </adressED1>
+    <namn>
+      <enamn />
+      <fnamn />
+      <knamn />
+      <mnamn />
+      <tnamn />
+    </namn>
+    <telefonED1 typ="Hem">
+      <nummer />
+    </telefonED1>
+    <fodelsetidpunkt />
+    <kon />
+    <personnr />
+  </patientED1>
+  <enheterED1>
+    <enhetED1 typ="Ansvarig">
+      <adressED1 typ="WP">
+        <adresstypED1 typ="PAD">
+          <del />
+        </adresstypED1>
+      </adressED1>
+      <personalED1 typ="Ansvarig">
+        <namn>
+          <enamn />
+          <fnamn />
+          <knamn />
+          <mnamn />
+          <tnamn />
+        </namn>
+        <signatur />
+        <specialitet />
+        <titel />
+        <titelkod />
+      </personalED1>
+      <telefonED1 typ="Arbete">
+        <nummer />
+      </telefonED1>
+      <avdelning />
+      <enhet />
+      <klinik />
+      <sjukhus />
+    </enhetED1>
+  </enheterED1>
+  <formlist>
+    <formgroup typ="sidor">
+      <string50value typ="sida">
+        <value />
+      </string50value>
+    </formgroup>
+    <formgroup typ="intyg">
+      <datevalue typ="datum_forsta_besok">
+        <value />
+      </datevalue>
+      <datevalue typ="giltigt_tom">
+        <value />
+      </datevalue>
+    </formgroup>
+    <formgroup typ="sjukresa_inom_lanet">
+      <string50value typ="foljeslagare">
+        <value />
+      </string50value>
+      <booleanvalue typ="tag">
+        <value />
+      </booleanvalue>
+      <booleanvalue typ="anslutning">
+        <value />
+      </booleanvalue>
+      <booleanvalue typ="taxi">
+        <value />
+      </booleanvalue>
+      <booleanvalue typ="taxi_hit">
+        <value />
+      </booleanvalue>
+      <booleanvalue typ="taxi_hem">
+        <value />
+      </booleanvalue>
+      <booleanvalue typ="foljeslagare_nej">
+        <value />
+      </booleanvalue>
+      <booleanvalue typ="barhjalp">
+        <value />
+      </booleanvalue>
+      <booleanvalue typ="fri_fran_egenavgift">
+        <value />
+      </booleanvalue>
+      <booleanvalue typ="framsate">
+        <value />
+      </booleanvalue>
+      <booleanvalue typ="kan_samaka_nej">
+        <value />
+      </booleanvalue>
+    </formgroup>
+    <formgroup typ="ovrig_information">
+      <stringUnboundValue typ="text1">
+        <value />
+      </stringUnboundValue>
+      <stringUnboundValue typ="text2">
+        <value />
+      </stringUnboundValue>
+    </formgroup>
+    <formgroup typ="sjukresa_utanfor_lanet">
+      <string50value typ="remitterad_till">
+        <value />
+      </string50value>
+      <string50value typ="ort">
+        <value />
+      </string50value>
+      <string50value typ="foljeslagare">
+        <value />
+      </string50value>
+      <booleanvalue typ="tag">
+        <value />
+      </booleanvalue>
+      <booleanvalue typ="flyg">
+        <value />
+      </booleanvalue>
+      <booleanvalue typ="taxi">
+        <value />
+      </booleanvalue>
+      <booleanvalue typ="foljeslagare_nej">
+        <value />
+      </booleanvalue>
+      <booleanvalue typ="anslutning">
+        <value />
+      </booleanvalue>
+      <booleanvalue typ="barhjalp">
+        <value />
+      </booleanvalue>
+    </formgroup>
+  </formlist>
+</blankett>

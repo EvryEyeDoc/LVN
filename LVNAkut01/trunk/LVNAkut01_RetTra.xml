@@ -1,0 +1,1366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<eyedoc>
+  <transform>
+    <global>
+      <source>
+        <xpath type="root">blankett</xpath>
+      </source>
+      <target>
+        <xpath type="root">*/form/fieldcode</xpath>
+        <xpath type="format">field[@name='{0}']/@data</xpath>
+      </target>
+    </global>
+    <rows>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Anamnes']/string50value[@typ='ankomstsatt']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">Arrival</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Anamnes&quot;]/string50value[@typ=&quot;ankomstsatt&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">Arrival_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Anamnes&quot;]/datevalue[@typ=&quot;datum&quot;]/value</item>
+          <item action="add" type="text">T</item>
+          <item action="add" type="xpath">formlist/formgroup[@typ=&quot;Anamnes&quot;]/string50value[@typ=&quot;ankomsttid&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">ArrivalDate</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Anamnes&quot;]/string50value[@typ=&quot;ankomsttid&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">ArrivalDate_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">patientED1/namn/knamn</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">Name</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='patientED1/namn/knamn']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">Name_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Anamnes&quot;]/string50value[@typ=&quot;rumsnr&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">Place</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Anamnes&quot;]/string50value[@typ=&quot;rumsnr&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">Place_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">patientED1/personnr</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">SocialSecurityNumber</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='patientED1/personnr']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">SocialSecurityNumber_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Triage&quot;]/string50value[@typ=&quot;ess_vald&quot;]/value</item>
+          <item action="add" type="text">;</item>
+          <item action="add" type="xpath">formlist/formgroup[@typ=&quot;Anamnes&quot;]/string100value[@typ=&quot;sokorsak&quot;]/value</item>
+          <item action="add" type="text">;</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">VisitReason</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Anamnes&quot;]/string100value[@typ=&quot;sokorsak&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">VisitReason_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Anamnes&quot;]/string50value[@typ=&quot;strada&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">Strada</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Anamnes&quot;]/string50value[@typ=&quot;strada&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">Strada_time</item>
+        </target>
+      </row>
+      <!--EKG-->
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Triage&quot;]/booleanvalue[@typ=&quot;ekg_amb&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">ekg_1_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Triage&quot;]/booleanvalue[@typ=&quot;ekg_amb&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">ekg_1_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">EKG</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">ekg_1_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Triage&quot;]/string50value[@typ=&quot;ekg_amb_sign&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">ekg_1_sign</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Triage&quot;]/string50value[@typ=&quot;ekg_amb_sign&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">ekg_1_signtime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Triage&quot;]/booleanvalue[@typ=&quot;ekg_akm&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">ekg_2_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Triage&quot;]/booleanvalue[@typ=&quot;ekg_akm&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">ekg_2_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">EKG</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">ekg_2_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Triage&quot;]/string50value[@typ=&quot;ekg_akm_sign&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">ekg_2_sign</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Triage&quot;]/string50value[@typ=&quot;ekg_akm_sign&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">ekg_2_signtime</item>
+        </target>
+      </row>
+      <!--Adress, dessa finns inte i blanketten, kommer från paratus?-->
+      <row>
+        <source>
+          <item action="replace" type="xpath">patientED1/adressED1[@typ='H']/adresstypED1[@typ='STR']/del</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">StreetAddress</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">StreetAddress_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">patientED1/adressED1[@typ='H']/adresstypED1[@typ='PNR']/del</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">PostalCode</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">PostalCode_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">patientED1/adressED1[@typ='H']/adresstypED1[@typ='PAD']/del</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">Town</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">Town_time</item>
+        </target>
+      </row>
+      <!-- Kön, detta finns inte i blanketten, kommer från paratus -->
+      <row>
+        <source>
+          <item action="replace" type="xpath">patientED1/kon</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">Sex</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">Sex_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Anamnes']/string50value[@typ='medgivande']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">Concent</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Anamnes&quot;]/string50value[@typ=&quot;medgivande&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">Concent_time</item>
+        </target>
+      </row>
+      <!-- ****************************************************** -->
+      <!-- ********************  Prio Värden ******************** -->
+      <!-- ****************************************************** -->
+      <!-- Första prio -->
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;rod_prio&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_A_1_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;rod_prio&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_A_1_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;orange_prio&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_A_2_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;orange_prio&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_A_2_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;gul_prio&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_A_3_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;gul_prio&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_A_3_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;gron_prio&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_A_4_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;gron_prio&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_A_4_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Triage&quot;]/booleanvalue[@typ=&quot;blaprio&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_A_5_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Triage&quot;]/booleanvalue[@typ=&quot;blaprio&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_A_5_time</item>
+        </target>
+      </row>
+      
+      <!-- Omprio 1 -->
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio1_rod&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_B_1_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio1_rod&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_B_1_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio1_orange&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_B_2_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio1_orange&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_B_2_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio1_gul&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_B_3_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio1_gul&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_B_3_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio1_gron&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_B_4_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio1_gron&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_B_4_time</item>
+        </target>
+      </row>
+      
+      <!-- Omprio 2 -->
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio2_rod&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_C_1_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio2_rod&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_C_1_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio2_orange&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_C_2_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio2_orange&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_C_2_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio2_gul&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_C_3_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio2_gul&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_C_3_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio2_gron&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_C_4_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio2_gron&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_C_4_time</item>
+        </target>
+      </row>
+
+      <!-- Omprio 3 -->
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio3_rod&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_D_1_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio3_rod&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_D_1_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio3_orange&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_D_2_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio3_orange&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_D_2_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio3_gul&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_D_3_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio3_gul&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_D_3_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio3_gron&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_D_4_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;omprio3_gron&quot;]/value']/@endtime</item>
+          <item type="text" action="format" argument="date">yyyy-MM-ddTHH:mm:ss</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">prio_D_4_time</item>
+        </target>
+      </row>
+      <!-- ****************************************************** -->
+      <!-- ********************  Labb Värden ******************** -->
+      <!-- ****************************************************** -->
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='arteriell_blodgas']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_1_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;arteriell_blodgas&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_1_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_1_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='arteriell_blodgas_intern']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_2_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;arteriell_blodgas_intern&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_2_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_2_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='venos_blodgas']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_3_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;venos_blodgas&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_3_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_3_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='venos_blodgas_intern']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_4_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;venos_blodgas_intern&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_4_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_4_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='elstatus']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_5_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;elstatus&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_5_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_5_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='blodstmcrp']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_6_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;blodstmcrp&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_6_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_6_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='blodstatus']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_7_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;blodstatus&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_7_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_7_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='leverprover']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_8_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;leverprover&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_8_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_8_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='intoxprover']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_9_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;intoxprover&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_9_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_9_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='pkaptt']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_10_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;pkaptt&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_10_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_10_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='ddimer']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_11_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;ddimer&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_11_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_11_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='tnt']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_12_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;tnt&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_12_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_12_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='ckmb']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_13_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;ckmb&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_13_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_13_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='krea']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_14_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;krea&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_14_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_14_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='crpintern']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_15_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;crpintern&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_15_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_15_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='snabbcrp']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_16_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;snabbcrp&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_16_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_16_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='snabbhb']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_17_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;snabbhb&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_17_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_17_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='snabbglucos']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_18_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;snabbglucos&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_18_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_18_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='urinsticka']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_19_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;urinsticka&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_19_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_19_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='urinodling']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_20_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;urinodling&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_20_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_20_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='uhcg']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_21_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;uhcg&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_21_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_21_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='blodgruppering']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_22_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;blodgruppering&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_22_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_22_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='bastest']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_23_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;bastest&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_23_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_23_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='blododling']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_24_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;blododling&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_24_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_24_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='alkometer']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_25_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;alkometer&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_25_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_25_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='fritext1_check']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_26_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;fritext1_check&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_26_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_26_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='fritext2_check']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_27_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;fritext2_check&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_27_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_27_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Lab']/booleanvalue[@typ='fritext3_check']/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_28_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Lab&quot;]/booleanvalue[@typ=&quot;fritext3_check&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_28_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">kem</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">lab_28_label</item>
+        </target>
+      </row>
+      <!-- ******************************************************* -->
+      <!-- *******************  Röntgen Värden ******************* -->
+      <!-- ******************************************************* -->
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;kontochord&quot;]/string50value[@typ=&quot;till_rontgen_kl&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">rtg_1_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;kontochord&quot;]/string50value[@typ=&quot;till_rontgen_kl&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">rtg_1_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">rtg</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">rtg_1_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;kontochord&quot;]/string50value[@typ=&quot;till_rontgen_sign&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">rtg_1_sign</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;kontochord&quot;]/string50value[@typ=&quot;till_rontgen_sign&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">rtg_1_signtime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;kontochord&quot;]/string50value[@typ=&quot;ater_rontgen_kl&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">rtg_2_value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;kontochord&quot;]/string50value[@typ=&quot;ater_rontgen_kl&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">rtg_2_time</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="text">rtg</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">rtg_2_label</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;kontochord&quot;]/string50value[@typ=&quot;ater_rontgen_sign&quot;]/value</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">rtg_2_sign</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;kontochord&quot;]/string50value[@typ=&quot;ater_rontgen_sign&quot;]/value']/@endtime</item>
+        </source>
+        <target>
+          <item action="createfield" type="xpathformat">rtg_2_signtime</item>
+        </target>
+      </row>
+      <!--  MiNMax Värden -->
+      <!--<row>
+        <source><item action="replace" type="xpathlogic" argument="min" arguments="2001-01-01T00:00:00">communicationform/formitems/formitem2/@endtime</item></source>
+        <target><item action="createfield" type="xpathformat">min</item></target>
+      </row>
+      <row>
+        <source><item action="replace" type="xpathlogic" argument="max"  arguments="2001-01-01T00:00:00">communicationform/formitems/formitem2/@endtime</item></source>
+        <target><item action="createfield" type="xpathformat">max</item></target>
+      </row>-->
+    </rows>
+  </transform>
+</eyedoc>

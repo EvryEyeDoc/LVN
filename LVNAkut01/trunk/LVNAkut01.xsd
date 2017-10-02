@@ -1,0 +1,2646 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<schema xmlns:tns="http://gainit.se/IBIS/BLANKETT/LVNAkut01" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://gainit.se/IBIS/BLANKETT/LVNAkut01" xmlns="http://www.w3.org/2001/XMLSchema">
+  <!--*****    EyeDoc DataTyper v1.2.0 - 2010-11-01 EB     *****-->
+  <simpleType name="guid">
+    <annotation>
+      <documentation>Guid - Globally Unique Identifier (128 bit)</documentation>
+    </annotation>
+    <restriction base="string">
+      <maxLength value="38" />
+      <pattern value="\{[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\}" />
+    </restriction>
+  </simpleType>
+  <simpleType name="String50">
+    <restriction base="string">
+      <maxLength value="50" />
+    </restriction>
+  </simpleType>
+  <simpleType name="String100">
+    <restriction base="string">
+      <maxLength value="100" />
+    </restriction>
+  </simpleType>
+  <simpleType name="String250">
+    <restriction base="string">
+      <maxLength value="250" />
+    </restriction>
+  </simpleType>
+  <simpleType name="String500">
+    <restriction base="string">
+      <maxLength value="500" />
+    </restriction>
+  </simpleType>
+  <simpleType name="String1000">
+    <restriction base="string">
+      <maxLength value="1000" />
+    </restriction>
+  </simpleType>
+  <simpleType name="StringMax">
+    <restriction base="string">
+      <maxLength value="4000" />
+    </restriction>
+  </simpleType>
+  <complexType name="String50Value">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="value" type="tns:String50" />
+    </sequence>
+    <attribute name="typ" type="tns:enum_ListValues" />
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <complexType name="String100Value">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="value" type="tns:String100" />
+    </sequence>
+    <attribute name="typ" type="tns:enum_ListValues" />
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <complexType name="String250Value">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="value" type="tns:String250" />
+    </sequence>
+    <attribute name="typ" type="tns:enum_ListValues" />
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <complexType name="String500Value">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="value" type="tns:String500" />
+    </sequence>
+    <attribute name="typ" type="tns:enum_ListValues" />
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <complexType name="String1000Value">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="value" type="tns:String1000" />
+    </sequence>
+    <attribute name="typ" type="tns:enum_ListValues" />
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <complexType name="String4000Value">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="value" type="tns:StringMax" />
+    </sequence>
+    <attribute name="typ" type="tns:enum_ListValues" />
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <complexType name="BooleanValue">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="value" type="boolean" default="0" />
+    </sequence>
+    <attribute name="typ" type="tns:enum_ListValues" />
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <complexType name="DateValue">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="value" type="date" />
+    </sequence>
+    <attribute name="typ" type="tns:enum_ListValues" />
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <complexType name="IntValue">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="value" type="int" />
+    </sequence>
+    <attribute name="typ" type="tns:enum_ListValues" />
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <complexType name="DoubleValue">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="value" type="double" />
+    </sequence>
+    <attribute name="typ" type="tns:enum_ListValues" />
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <complexType name="StringUnboundValue">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="value" type="tns:StringUnbounded" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+    <attribute name="typ" type="tns:enum_ListValues" />
+  </complexType>
+  <simpleType name="StringUnbounded">
+    <annotation>
+      <documentation>Generic String field with unbounded length.</documentation>
+    </annotation>
+    <restriction base="string">
+    </restriction>
+  </simpleType>
+  <!--*****     Formlist     *****-->
+  <complexType name="FormList">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="formgroup" type="tns:FormGroup" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <complexType name="FormGroup">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="string50value" type="tns:String50Value" />
+      <element minOccurs="0" maxOccurs="unbounded" name="string100value" type="tns:String100Value" />
+      <element minOccurs="0" maxOccurs="unbounded" name="string250value" type="tns:String250Value" />
+      <element minOccurs="0" maxOccurs="unbounded" name="string500value" type="tns:String500Value" />
+      <element minOccurs="0" maxOccurs="unbounded" name="string1000value" type="tns:String1000Value" />
+      <element minOccurs="0" maxOccurs="unbounded" name="stringUnboundValue" type="tns:StringUnboundValue" />
+      <element minOccurs="0" maxOccurs="unbounded" name="string4000value" type="tns:String4000Value" />
+      <element minOccurs="0" maxOccurs="unbounded" name="booleanvalue" type="tns:BooleanValue" />
+      <element minOccurs="0" maxOccurs="unbounded" name="datevalue" type="tns:DateValue" />
+      <element minOccurs="0" maxOccurs="unbounded" name="intvalue" type="tns:IntValue" />
+      <element minOccurs="0" maxOccurs="unbounded" name="doublevalue" type="tns:DoubleValue" />
+    </sequence>
+    <attribute name="typ" type="tns:enum_ListGroup" />
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+
+
+  <simpleType name="enum_ListGroup">
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="DoldSokorsak" />
+      <enumeration value="retts1" />
+      <enumeration value="retts2" />
+      <enumeration value="retts3" />
+      <enumeration value="retts4" />
+      <enumeration value="retts5" />
+      <enumeration value="retts6" />
+      <enumeration value="retts7" />
+      <enumeration value="retts8" />
+      <enumeration value="retts9" />
+      <enumeration value="retts10" />
+      <enumeration value="retts11" />
+      <enumeration value="retts12" />
+      <enumeration value="retts13" />
+      <enumeration value="retts14" />
+      <enumeration value="retts15" />
+      <enumeration value="retts16" />
+      <enumeration value="retts17" />
+      <enumeration value="retts19" />
+      <enumeration value="retts20" />
+      <enumeration value="retts21" />
+      <enumeration value="retts30" />
+      <enumeration value="retts31" />
+      <enumeration value="retts33" />
+      <enumeration value="retts34" />
+      <enumeration value="retts35" />
+      <enumeration value="retts37" />
+      <enumeration value="retts38" />
+      <enumeration value="retts39" />
+      <enumeration value="retts40" />
+      <enumeration value="retts41" />
+      <enumeration value="retts42" />
+      <enumeration value="retts43" />
+      <enumeration value="retts45" />
+      <enumeration value="retts46" />
+      <enumeration value="retts47" />
+      <enumeration value="retts48" />
+      <enumeration value="retts49" />
+      <enumeration value="retts50" />
+      <enumeration value="retts51" />
+      <enumeration value="retts52" />
+      <enumeration value="retts53" />
+      <enumeration value="retts70" />
+      <enumeration value="retts71" />
+      <enumeration value="retts72" />
+      <enumeration value="retts80" />
+      <enumeration value="retts81" />
+      <enumeration value="retts82" />
+      <enumeration value="retts83" />
+      <enumeration value="retts84" />
+      <enumeration value="retts85" />
+      <enumeration value="retts86" />
+      <enumeration value="retts87" />
+      <enumeration value="retts88" />
+      <enumeration value="retts89" />
+      <enumeration value="retts98" />
+      <enumeration value="retts99" />
+      <enumeration value="retts100" />
+      <enumeration value="triagetider" />
+      <enumeration value="Matvarden" />
+      <enumeration value="Anamnes" />
+      <enumeration value="Triage" />
+      <enumeration value="Process" />
+      <enumeration value="kontochord" />
+      <enumeration value="kontochord_tabell_kolumn1" />
+      <enumeration value="kontochord_tabell" />
+      <enumeration value="kontochord_tabell_kolumn2" />
+      <enumeration value="kontochord_tabell_kolumn3" />
+      <enumeration value="kontochord_tabell_kolumn4" />
+      <enumeration value="kontochord_tabell_kolumn5" />
+      <enumeration value="kontochord_tabell_kolumn6" />
+      <enumeration value="kontochord_lakemedel1" />
+      <enumeration value="kontochord_lakemedel2" />
+      <enumeration value="kontochord_lakemedel3" />
+      <enumeration value="kontochord_lakemedel4" />
+      <enumeration value="kontochord_lakemedel5" />
+      <enumeration value="kontochord_lakemedel6" />
+      <enumeration value="kontochord_lakemedel7" />
+      <enumeration value="kontochord_lakemedel8" />
+      <enumeration value="Lab" />
+      <enumeration value="urinsond" />
+      <enumeration value="omvardnadsatgarder" />
+      <enumeration value="narstaende" />
+      <enumeration value="lakordtillavd" />
+      <enumeration value="checklistainforhemgang" />
+      <enumeration value="sokorsak1" />
+      <enumeration value="Beslutstod" />
+    </restriction>
+  </simpleType>
+  <simpleType name="enum_ListValues">
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="onormal_hjartrytm_r00" />
+      <enumeration value="formaksflimmerfladder_i489" />
+      <enumeration value="hogt_blodtryck_r030" />
+      <enumeration value="lagt_blodtryck_r031_som_sokorsak" />
+      <enumeration value="blodhostahemoptys_r042" />
+      <enumeration value="nasblodning_r040" />
+      <enumeration value="tonsillblodningpostoperativ_r041" />
+      <enumeration value="andningsbesvardyspneandnod_r060" />
+      <enumeration value="hyperventilation_r064" />
+      <enumeration value="brostsmarta_vid_andning_r071" />
+      <enumeration value="brostsmartabrostkorgsmarta_uns_r074" />
+      <enumeration value="buksmarta_flanksmarta_r104" />
+      <enumeration value="illamaendekrakning_r119" />
+      <enumeration value="diarre_uns_a09" />
+      <enumeration value="smartasvullnad_ljumske_" />
+      <enumeration value="blodig_krakninghematemes_k920" />
+      <enumeration value="blodig_avforingmelena_k921" />
+      <enumeration value="symtom_i_anus_och_rektum_k629" />
+      <enumeration value="gastrointestinal_blodning_k92" />
+      <enumeration value="gulsot_ikterus_r17" />
+      <enumeration value="ascites_r18" />
+      <enumeration value="kramper_uns_r_568" />
+      <enumeration value="epilepsi_kand_g_409" />
+      <enumeration value="sensibilitetsstorning_r20" />
+      <enumeration value="tremor_r251" />
+      <enumeration value="yrsel_och_svindel_r42" />
+      <enumeration value="facialispares_g519" />
+      <enumeration value="stroke_i649" />
+      <enumeration value="neurologiskt_bortfalltia_g459" />
+      <enumeration value="ledvark_m255" />
+      <enumeration value="smarta_nacke_m542" />
+      <enumeration value="ryggsmarta_m549" />
+      <enumeration value="smartor_i_brostrygg_m546" />
+      <enumeration value="smarta_i_extremitet_m796" />
+      <enumeration value="svullnad_i_extremitet_r224" />
+      <enumeration value="underbensodem_r600" />
+      <enumeration value="odem_uns_r609" />
+      <enumeration value="extremitetsproblem_" />
+      <enumeration value="smarta_vid_vattenkastning_r30" />
+      <enumeration value="urinretention_r33" />
+      <enumeration value="hematuriblod_i_urinen_r31" />
+      <enumeration value="urinproblem_r39" />
+      <enumeration value="skrotal_svullnad_n508" />
+      <enumeration value="underlivsbesvar_hos_man_for_kvinnor_se_ess_" />
+      <enumeration value="skrotal_smarta_" />
+      <enumeration value="huvudvark_r51" />
+      <enumeration value="neuralgi_m792" />
+      <enumeration value="svimningkollaps_r55" />
+      <enumeration value="medvetandeforlust_r55" />
+      <enumeration value="underlivsbesvar_hos_kvinnor_n926" />
+      <enumeration value="graviditet_komplikation_o209" />
+      <enumeration value="vaginal_blodning_n85" />
+      <enumeration value="postpartum_lt_30dagar_z390" />
+      <enumeration value="hangningstrypning_y209" />
+      <enumeration value="skadatrauma_huvud_s099" />
+      <enumeration value="skada_nackehals_s119" />
+      <enumeration value="skada_thoraxrygg_s299" />
+      <enumeration value="skada_bukbacken_s399" />
+      <enumeration value="skada_handarm_s699" />
+      <enumeration value="skada_axelnyckelben_s430" />
+      <enumeration value="skada_hoftlar_s799" />
+      <enumeration value="skada_knaunderben_s899" />
+      <enumeration value="skada_fot_s999" />
+      <enumeration value="lokal_koldskada_t357" />
+      <enumeration value="brannskadafratskada_t30" />
+      <enumeration value="inhalationsskadakolmonoxid_t59" />
+      <enumeration value="kemskada_t65" />
+      <enumeration value="elolycka_t754" />
+      <enumeration value="blixtnedslag_t75" />
+      <enumeration value="stralskada_t66" />
+      <enumeration value="skada_pa_oga_s05" />
+      <enumeration value="infektion_oga_h059" />
+      <enumeration value="ogonproblem_" />
+      <enumeration value="multitrauma_z916" />
+      <enumeration value="traumalarmsaktiveringsalgoritm_" />
+      <enumeration value="forgiftning_uns_t509" />
+      <enumeration value="toxiska_effekter_av_djur_uns_t639" />
+      <enumeration value="stick_och_bett_av_djur_" />
+      <enumeration value="fysisk_misshandel_t749" />
+      <enumeration value="sexuellt_vald_z044" />
+      <enumeration value="allergi_t784" />
+      <enumeration value="lakemedelsreaktion_uns_t887" />
+      <enumeration value="exantem_r21" />
+      <enumeration value="frammande_kropp_ora_t16" />
+      <enumeration value="oronproblem_h93" />
+      <enumeration value="frammande_kropp_i_nasa_t171" />
+      <enumeration value="frammande_kropp_i_luftvag_t_179" />
+      <enumeration value="frammande_kropp_i_esofagus_t181" />
+      <enumeration value="nasproblemhalsont_" />
+      <enumeration value="infektion_uns_b99" />
+      <enumeration value="feber_r509" />
+      <enumeration value="lokal_infektion_" />
+      <enumeration value="anemi_d649" />
+      <enumeration value="diabetes_kand_e14" />
+      <enumeration value="hogt_blodsockerhyperglykemi_r739" />
+      <enumeration value="lagt_blodsockerhypoglykemi_e162" />
+      <enumeration value="kand_binjurebarkssvikt_e271" />
+      <enumeration value="addisons_sjukdom_e271" />
+      <enumeration value="immunbrist_eller_immunosupression_d849" />
+      <enumeration value="ospecifik_psykisk_ohalsa_f09" />
+      <enumeration value="sjukdomskansla_trotthet_r53" />
+      <enumeration value="fallbenagenhet_r296" />
+      <enumeration value="ospecifik_sjukdom_r69" />
+      <enumeration value="halsoundersokning_z00" />
+      <enumeration value="intyg_" />
+      <enumeration value="provsvarsalgoritm_" />
+      <enumeration value="gipsproblem_t_983" />
+      <enumeration value="operationskomplikation_t_983" />
+      <enumeration value="nedstamdhet_r452" />
+      <enumeration value="manihypomani_f302" />
+      <enumeration value="angest_f419" />
+      <enumeration value="somnstorning_g479" />
+      <enumeration value="psykotiska_symtom_f230" />
+      <enumeration value="missbrukberoende_f1017" />
+      <enumeration value="sjalvskadebeteende_f919" />
+      <enumeration value="atstorning_f_50" />
+      <enumeration value="krisreaktion_f_43" />
+      <enumeration value="reaktion_pa_svar_stress_f_43" />
+      <enumeration value="demens_f_039" />
+      <enumeration value="desorientering_r_410" />
+      <enumeration value="organiska_psykiska_storningar_f00f09" />
+      <enumeration value="farlighetsbedomning_" />
+      <enumeration value="suicidbedomning_" />
+      <enumeration value="organisk_katatoni_f_061" />
+      <enumeration value="newline" />
+      <enumeration value="brostsmarta" />
+      <enumeration value="dyspneandnod" />
+      <enumeration value="multiipla_medvetandeforluster" />
+      <enumeration value="enstaka_medvetandeforlust" />
+      <enumeration value="nydebuterat_eller_recidiverande_formaksflim" />
+      <enumeration value="ingen_medvetandeforlust" />
+      <enumeration value="akuta_bortfallssymtom" />
+      <enumeration value="medvetandepaverkad_med__sbt_gt240_ocheller_" />
+      <enumeration value="dbt_gt140_mmhg_upprepade_matningar" />
+      <enumeration value="dbt_gt_120mmhg_upprepade_matningar" />
+      <enumeration value="inget_av_ovanstaende" />
+      <enumeration value="hb_lt70" />
+      <enumeration value="pagaende_stor_okontrollerad_blodning" />
+      <enumeration value="akbeh_eller_blodningsbenagenhet" />
+      <enumeration value="hb_lt90" />
+      <enumeration value="nyligen_svalgkirurgi_lt_14_dagar" />
+      <enumeration value="pagaende_medelstormultipla_nas_blodningar" />
+      <enumeration value="stora_hemoptyser" />
+      <enumeration value="intermittent_farsk_nasblodning" />
+      <enumeration value="enstaka_hemoptyser" />
+      <enumeration value="icke_farsk_nasblodning" />
+      <enumeration value="nytillkommet_vanstergrenblock" />
+      <enumeration value="sthojning" />
+      <enumeration value="utbredd_thorakal_plotsligt_smarta_med_veget" />
+      <enumeration value="ischemitecken_pa_ekgandnoddyspne" />
+      <enumeration value="samtidig_svar_brostsmarta_med_eller_utan_an" />
+      <enumeration value="synlig_halsvenstas" />
+      <enumeration value="bilaterala_benodem" />
+      <enumeration value="endast_andningskorrelerad_brostsmarta" />
+      <enumeration value="i_kombination_med_hjartklappning" />
+      <enumeration value="brostsmarta_som_kommer_i_vila_ocheller_ring" />
+      <enumeration value="brostsmartabrostkorgssmarta_med_samtidig_an" />
+      <enumeration value="brostsmarta_med_medvetandeforluster_i_anamn" />
+      <enumeration value="med_ischemitecken_pa_ekg_samt_pagaende_bros" />
+      <enumeration value="nyligenpagaende_brostsmarta_med_vegetativa_" />
+      <enumeration value="icke_nytillkommen_brostsmarta_med_normalt_e" />
+      <enumeration value="mattliglatt_brostsmarta_men_med_normalt_ekg" />
+      <enumeration value="riskfaktorer" />
+      <enumeration value="plotslig_debut_och_pagaende_smarta_hos_allm" />
+      <enumeration value="feber_gt385_grader_och_frossa_nu_eller_fore" />
+      <enumeration value="icke_reponibel_smartande_resistens_i_ljumsk" />
+      <enumeration value="immunosuppremerad_patient" />
+      <enumeration value="smarta_och_medvetandeforlust_i_anamnesen" />
+      <enumeration value="svarmattlig_smarta_hos_allmanpaverkad_patie" />
+      <enumeration value="smarta_hos_pat_med_kant_bukaortaaneurysm" />
+      <enumeration value="smarta_hos_peritonealdialys_pyelostomi_elle" />
+      <enumeration value="gt_2_krakningar_sista_4_h" />
+      <enumeration value="ihallande_buksmarta_hos_en_i_ovrigt_opaverk" />
+      <enumeration value="makroskopisk_hematuri" />
+      <enumeration value="buksmarta_och_upprepade_tunna_diarreer" />
+      <enumeration value="buksmarta_och_nyligen_utlandsvistelse_med_e" />
+      <enumeration value="pagaende_stor_blodkrakning_eller_stor_recta" />
+      <enumeration value="anamnes_pa_stor_blodkrakning_eller_stor_rec" />
+      <enumeration value="enstaka_blodningar_rectalt_eller_oralt" />
+      <enumeration value="svart_avforing_eller_blod_i_avforingen" />
+      <enumeration value="hb_lt_70" />
+      <enumeration value="ikterus_med_feber_gt_385grd" />
+      <enumeration value="hb_lt_90" />
+      <enumeration value="psykotiskt_beteende" />
+      <enumeration value="anamnes_pa_skalltrauma" />
+      <enumeration value="patient_med_aktuella_upprepade_krampanfall" />
+      <enumeration value="krampanfall_i_anamnesen_utan_tidigare_kand_" />
+      <enumeration value="krampanfall_och_tidigare_kand_epilepsi" />
+      <enumeration value="dbt_gt120_mmhg" />
+      <enumeration value="plotsligt_pakommen_huvudvark" />
+      <enumeration value="samtidig_krakning" />
+      <enumeration value="skalltrauma_i_anamnesen_inom_48_h" />
+      <enumeration value="upprepade_intermittenta_bortfallsymtom_med_" />
+      <enumeration value="aktuellt_missbruk_abstinens" />
+      <enumeration value="dbt_gt110_mmhg" />
+      <enumeration value="anamnes_pa_medvetandeforlust" />
+      <enumeration value="krakningar" />
+      <enumeration value="akut_debut" />
+      <enumeration value="enstaka_krakning_utan_andra_symtom" />
+      <enumeration value="skalltrauma_i_anamnesen" />
+      <enumeration value="tidigare_stroke" />
+      <enumeration value="patienten_uppfyller_kriterier_for_strokelar" />
+      <enumeration value="huvudvark" />
+      <enumeration value="krakningarillamaendeyrsel" />
+      <enumeration value="patient_med_intermittenta_borfall_inom_7_dy" />
+      <enumeration value="bortfallstroke_som_ej_uppfyller_kriterier_f" />
+      <enumeration value="debut_lt24_h_och_rodnad_svullenom_led" />
+      <enumeration value="feber_gt385grd_och_frossa_nu_eller_fore_ank" />
+      <enumeration value="immunosupprimerad_patient" />
+      <enumeration value="inopererat_materialprotes_i_varkande_led" />
+      <enumeration value="omojligt_att_flekteraextendera" />
+      <enumeration value="plotslig_debut_med_pagaende_smarta_och_allm" />
+      <enumeration value="thorakal_plotsligt_smarta_med_vegetativa_sy" />
+      <enumeration value="akbehandling_eller_blodningsbenagenhet" />
+      <enumeration value="nytillkommet_neurologiskt_bortfall" />
+      <enumeration value="thorakal_plotslig_smarta_utan_vegetativa_sy" />
+      <enumeration value="urinretention_urinstamma" />
+      <enumeration value="debutduration_gt12_h" />
+      <enumeration value="tidigare_kand_terapiresistent_smarta" />
+      <enumeration value="ingen_kapillar_aterfyllnad" />
+      <enumeration value="nytillkommen_kall_extremitet" />
+      <enumeration value="svar_smarta_och_plotslig_debut" />
+      <enumeration value="inopererat_materialprotes" />
+      <enumeration value="nydiagnostiserad_dvt" />
+      <enumeration value="svullnad_och_konsistensokning" />
+      <enumeration value="tidigare_dvtartaremboli" />
+      <enumeration value="makroskopisk_hematuri_med_akbeh_eller_blodn" />
+      <enumeration value="pyelostomi" />
+      <enumeration value="buksmartor" />
+      <enumeration value="plotslig_debut_ocheller_intermittent_skrota" />
+      <enumeration value="priapismparaphimosis" />
+      <enumeration value="trauma_skrotum_och_kraftig_smartaodem" />
+      <enumeration value="mattlig_till_lindrig_smarta" />
+      <enumeration value="svullnad_ocheller_blodning_i_omradet" />
+      <enumeration value="inopererad_shunt" />
+      <enumeration value="meningismnackstelhet" />
+      <enumeration value="neurologiskt_bortfall_ocheller_krakningar" />
+      <enumeration value="plotslig_yrsel" />
+      <enumeration value="askknallshuvudvark" />
+      <enumeration value="enstaka_krakning" />
+      <enumeration value="multipla_medvetandeforluster" />
+      <enumeration value="pagaende_vegetativa_symtom" />
+      <enumeration value="enstaka_medvetendeforlust" />
+      <enumeration value="plotslig_debut_med_pagaende_smarta_pa_allma" />
+      <enumeration value="akbehandling_eller_blodningsbenagenhet_hos_" />
+      <enumeration value="buksmarta_av_intervallkaraktar" />
+      <enumeration value="feber_gt_385grd__och_frossa_nu_eller_fore_i" />
+      <enumeration value="imunosuppression" />
+      <enumeration value="post_partum_och_anamnes_pa_feber" />
+      <enumeration value="stor_vaginal_blodning" />
+      <enumeration value="hb_lt_100" />
+      <enumeration value="lindrig_buksmarta" />
+      <enumeration value="mattlig_vaginal_blodning" />
+      <enumeration value="hangningstrypningsforsok" />
+      <enumeration value="penetrerande_skada_huvudhals" />
+      <enumeration value="berusadcns_paverkad_patientintoxikerad" />
+      <enumeration value="blodning_fran_horselgang" />
+      <enumeration value="kraftig_och_okande_svullnad" />
+      <enumeration value="misstankt_penetrerande_ogonskada" />
+      <enumeration value="misstankt_skelettskada_huvudhals" />
+      <enumeration value="neurologiskt_bortfall" />
+      <enumeration value="pulserande_blodning" />
+      <enumeration value="svaljningssvarigheter" />
+      <enumeration value="djup_sarskada_som_behover_sutureras" />
+      <enumeration value="medvetsloshetamnesi_i_samband_med_skada" />
+      <enumeration value="misshandel_kan_lagst_bli_gul" />
+      <enumeration value="ytliga_skador_och_inget_av_ovanstaende" />
+      <enumeration value="instabil_brostkorg" />
+      <enumeration value="instabilt_backen" />
+      <enumeration value="penetrerande_skada_pa_bal" />
+      <enumeration value="andningskorrelerad_thorakal_smarta_med_vege" />
+      <enumeration value="halsvenstas" />
+      <enumeration value="misstanke_om_ryggfraktur" />
+      <enumeration value="tilltagande_buksmarta_ocheller_bukomfang" />
+      <enumeration value="urinstamma_ocheller_kraftig_hematuri" />
+      <enumeration value="mattlig_andningskorrelerad_smarta" />
+      <enumeration value="amputation_ovan_handled" />
+      <enumeration value="minst_2_frakturer_pa_langa_rorben" />
+      <enumeration value="frakturluxation_med_kraftig_felstallningopp" />
+      <enumeration value="infektionstecken_och_smarta_vid_flexionexte" />
+      <enumeration value="nedatt_distalstatus" />
+      <enumeration value="svar_smarta_tecken_till_kompartmentsyndrom" />
+      <enumeration value="frakturledluxation_i_handled_eller_distalt_" />
+      <enumeration value="misstanke_om_fraktur_utan_felstallning" />
+      <enumeration value="misstanke_om_nyckelbensfraktur" />
+      <enumeration value="misshandel_kan_bli_lagst_gul_prio" />
+      <enumeration value="amputation_ovan_fotled" />
+      <enumeration value="infektionstecken_och_smarta_vid_flextionext" />
+      <enumeration value="kraftig_svullnad_och_konsistensokning" />
+      <enumeration value="larbensfraktur" />
+      <enumeration value="nedsatt_distalstatus" />
+      <enumeration value="pulserande_bkodning" />
+      <enumeration value="misstanke_om_fraktur_eller_ledluxation_dist" />
+      <enumeration value="misshandel_kan_bli_lagst_gul_prioritet" />
+      <enumeration value="underbensfraktur_sluten_och_utan_svar_felst" />
+      <enumeration value="brannskadafratskada_gt_18prc" />
+      <enumeration value="brannskadafratskada_ansiktehals_oga_med_hot" />
+      <enumeration value="cirkumferent_fullhudsbrannskada_pa_extremit" />
+      <enumeration value="elolycka_hogspanning" />
+      <enumeration value="inhalationsskador_av_kem_het_brandrok" />
+      <enumeration value="kemfratskador_av_potentiellt_livshotande_am" />
+      <enumeration value="svullnad_i_ansiktetunga" />
+      <enumeration value="brannskadafratskada_lt_18prc" />
+      <enumeration value="symtomgivande_rokinhalation" />
+      <enumeration value="medvetandeforlust_i_anamnesen" />
+      <enumeration value="begransad_brannfratskadakoldskada_lt5prc" />
+      <enumeration value="blixtnedslag_i_patientens_omedelbara_narhet" />
+      <enumeration value="lokal_koldskada" />
+      <enumeration value="elolycka_hushallsel" />
+      <enumeration value="fratskada_eller_misstankt_fratskada" />
+      <enumeration value="infekterat_oga_med_feber_o_vark" />
+      <enumeration value="penetrerande_skada" />
+      <enumeration value="plotslig_synnedsattningsynforandring" />
+      <enumeration value="skada_som_maste_sutureras" />
+      <enumeration value="ofri_luftvag" />
+      <enumeration value="spo2lt90prc_med_02" />
+      <enumeration value="af_gt30_eller_lt_8minut" />
+      <enumeration value="puls_gt130min" />
+      <enumeration value="systoliskt_bt_lt_90mmhg" />
+      <enumeration value="rls_gt3_eller_gcs_lt12" />
+      <enumeration value="ryggskada_med_neurologiskt_bortfall" />
+      <enumeration value="penetrande_vald_pa_huvud_hals_eller_bal" />
+      <enumeration value="minst_2_frakturer_pa_langa_rorben_proximalt" />
+      <enumeration value="amputation_ovan_handled_eller_fotled" />
+      <enumeration value="rokskada_eller_brannskada_gt18prc" />
+      <enumeration value="drunkning_ocheller_nedkylning" />
+      <enumeration value="bilolycka_beraknad_hastighet_gt60kmh_vid_ol" />
+      <enumeration value="utlost_krockkudde" />
+      <enumeration value="fordonet_voltat_ocheller_personen_fastklamd" />
+      <enumeration value="utkastad_ur_fordonet" />
+      <enumeration value="dodsfall_pa_person_i_samma_fordon" />
+      <enumeration value="mcmopedcykelolycka_gt30kmh" />
+      <enumeration value="fotgangare_eller_cyklist_pakord_av_motorfor" />
+      <enumeration value="fall_fran_hojd_gt_3_meter" />
+      <enumeration value="annat_uppenbart_hogenegivald" />
+      <enumeration value="patientern_kan_erhalla_gul_prio_om_man_efte" />
+      <enumeration value="traumalarmet_kan_avblasas_prehospitalt_till" />
+      <enumeration value="pulshjartfrekvens_gt130min" />
+      <enumeration value="dodsfall_i_samma_fordon" />
+      <enumeration value="mcmopedcykelolycka_med_beraknat_gt30kmh_vid" />
+      <enumeration value="annat_uppenbart_hogenergivald" />
+      <enumeration value="buksmarta" />
+      <enumeration value="intag_av_substans_i_suicidsyfte" />
+      <enumeration value="intag_av_kand_giftsvamp" />
+      <enumeration value="misstanke_om_allvarlig_intoxikation" />
+      <enumeration value="accidentiellt_intag_av_okand_substans_eller" />
+      <enumeration value="anafylaktisk_reaktion" />
+      <enumeration value="bett_av_djur_med_potentiellt_gift" />
+      <enumeration value="feber_gt385grd_ocheller_frossa_nu_eller_for" />
+      <enumeration value="stickbett_i_svalg_eller_munhala" />
+      <enumeration value="tidigare_anamnes_pa_allvarlig_allergisk_rea" />
+      <enumeration value="kraftig_lokal_reaktion_av_bett" />
+      <enumeration value="akbehandling_eller_blodningsbenagenhetltsup" />
+      <enumeration value="fysisk_misshandlad_kan_bli_lagst_gul" />
+      <enumeration value="petekier_och_infektionstecken" />
+      <enumeration value="klada_i_svalg" />
+      <enumeration value="svullnad_i_huvudhals" />
+      <enumeration value="tidigare_anafylaktisk_reaktion" />
+      <enumeration value="mattlig_klada_och_urtikariaexantem" />
+      <enumeration value="lokal_urtikariaexantem" />
+      <enumeration value="rodnad_och_svullen_proc_mastoideus" />
+      <enumeration value="samtidigt_nackstel" />
+      <enumeration value="varig_flytning_ur_horselgangen" />
+      <enumeration value="allvarligt_hot_om_ofri_luftvag" />
+      <enumeration value="epiglottitmisstanke" />
+      <enumeration value="frammande_kropp_som_misstanks_hamnat" />
+      <enumeration value="nedsvalt_knappcellsbatteri_eller_magneter" />
+      <enumeration value="svarigheter_att_svalja_saliv" />
+      <enumeration value="frammande_kropp_som_sitter_kvar_i_nasan" />
+      <enumeration value="skallande_hosta" />
+      <enumeration value="svaljningssvarigheter_men_svaljer_saliv" />
+      <enumeration value="petekier" />
+      <enumeration value="feber_gt_385grd_och_frossa_nu_eller_fore_an" />
+      <enumeration value="patient_med_feber_gt385grd__anamnes_pa_inop" />
+      <enumeration value="svar_smarta" />
+      <enumeration value="kraftig_lokal_infektion_rodnad_varmeokning_" />
+      <enumeration value="hb_gt_90" />
+      <enumeration value="acetondoft" />
+      <enumeration value="pglukos_gt_25" />
+      <enumeration value="kussmalandning" />
+      <enumeration value="medvetandepaverkan" />
+      <enumeration value="diarre" />
+      <enumeration value="pglukos_1525" />
+      <enumeration value="pglukos_lt_15" />
+      <enumeration value="insulinoverdosering" />
+      <enumeration value="pglukos_lt_3" />
+      <enumeration value="misstankt_insulinoverdosering_men_normalt_p" />
+      <enumeration value="per_oral_antidiabetika" />
+      <enumeration value="ej_tagit_sitt_cortison" />
+      <enumeration value="frossa_ocheller_feber_i_anamnesen" />
+      <enumeration value="krakning_ocheller_diarre" />
+      <enumeration value="infektionsanamnes_men_tagit_cortison_enligt" />
+      <enumeration value="svar_angest" />
+      <enumeration value="akut_insattande_sjukdom_uns" />
+      <enumeration value="avvikande_beteende" />
+      <enumeration value="subakut_insattande_sjukdom" />
+      <enumeration value="troponin_gt_lokal_grans_for_infarktacs" />
+      <enumeration value="sna_lt125" />
+      <enumeration value="sk_gt_55_eller_lt27" />
+      <enumeration value="skreatinin_gt500" />
+      <enumeration value="pglukos_lt3_eller_gt25" />
+      <enumeration value="laktat_gt50" />
+      <enumeration value="be_lt4_eller_gt4" />
+      <enumeration value="crpgt200" />
+      <enumeration value="pkinr_gt25_for_patient_utan_ak_beh_folj_lok" />
+      <enumeration value="paracetamol_gt_referens_for_antidotbehandli" />
+      <enumeration value="lpk_lt1" />
+      <enumeration value="kall_extremitet" />
+      <enumeration value="svar_smarta_symtomtecken_pa_kompartmentsynd" />
+      <enumeration value="lokal_infektion" />
+      <enumeration value="pagaende_stor_blodning" />
+      <enumeration value="akbeh_eller_blodningsbenagenhet_hos_blodand" />
+      <enumeration value="feber_gt_385grd_och_frossa_nu_eller_fore_in" />
+      <enumeration value="nyligen_svalgkirurgi_lt14_dagar" />
+      <enumeration value="svarmattlig_smarta_pa_allmanpaverkad_patien" />
+      <enumeration value="sarruptur_pa_balen" />
+      <enumeration value="tecken_till_kompartmentsyndrom" />
+      <enumeration value="mattlig_smarta_med_lokala_infektionstecken" />
+      <enumeration value="emotionell_labilitet" />
+      <enumeration value="psykomotorisk_agitation_oroligt_beteende_ra" />
+      <enumeration value="psykossymtom" />
+      <enumeration value="pataglig_hamning_emotionellt_motoriskt_kogn" />
+      <enumeration value="social_isolering" />
+      <enumeration value="anhedoni_svarigheter_att_kanna_gladje_lust_" />
+      <enumeration value="asteni_trotthetuttrottbarhet_irritabilitet" />
+      <enumeration value="nedsatt_koncentration" />
+      <enumeration value="somnstorning" />
+      <enumeration value="tendens_till_isolation" />
+      <enumeration value="viktforandring_viktnedgang_viktuppgang" />
+      <enumeration value="blandtillstand_samtidig_hypomani_mani_och_d" />
+      <enumeration value="desorientering_konfusorisk" />
+      <enumeration value="gransloshet" />
+      <enumeration value="psykomotorisk_agitation_oro_rastloshet" />
+      <enumeration value="psykossymtom_sarskilt_paranoida_och_eller_h" />
+      <enumeration value="riskfyllt_beteende" />
+      <enumeration value="okat_talflode_snabbt_tankeforlopp" />
+      <enumeration value="irritabilitet" />
+      <enumeration value="latt_distraherbar" />
+      <enumeration value="minskat_somnbehov" />
+      <enumeration value="okad_energi_upprymdhet" />
+      <enumeration value="okad_impulsivitet" />
+      <enumeration value="okat_talflode" />
+      <enumeration value="okad_social_interaktion" />
+      <enumeration value="dissociation_overklighetskansla_betraffande" />
+      <enumeration value="pagaende_panikattack" />
+      <enumeration value="somatiska_och_eller_vegetativa_symtom" />
+      <enumeration value="tvangstankar_ocheller_tvangshandlingar" />
+      <enumeration value="angestoro_som_avsevart_begransar_vardagliga" />
+      <enumeration value="forekomst_av_angest_eller_oro" />
+      <enumeration value="latt_till_mattlig_nedstamdhet" />
+      <enumeration value="overklighetskansla" />
+      <enumeration value="asteni_trotthetuttrottbarhet_irritabilitet_" />
+      <enumeration value="forekomst_av_angest_sarskilt_nattetid" />
+      <enumeration value="koncentrationssvarigheter" />
+      <enumeration value="bristande_sjukdomsinsikt" />
+      <enumeration value="hallucinationer_vanforestallningar_eller_ta" />
+      <enumeration value="kroniska_vanforestallningar_negativa_symtom" />
+      <enumeration value="delirium_tremens_eller_misstanke_om" />
+      <enumeration value="patagliga_abstinenssymtom" />
+      <enumeration value="abstinenssymtom_med_vegetativa_symtom" />
+      <enumeration value="aktuell_svar_somatisk_sjukdom" />
+      <enumeration value="paverkat_allmantillstand" />
+      <enumeration value="svar_angestoro" />
+      <enumeration value="nedsatt_social_funktionsformaga_i_viktiga_a" />
+      <enumeration value="pataglig_somnstorning" />
+      <enumeration value="angest_relaterad_till_drogintag" />
+      <enumeration value="onskemal_om_avgiftningabstinensbehandling_h" />
+      <enumeration value="blodning_farsk_sarskada" />
+      <enumeration value="impulsivitet" />
+      <enumeration value="utatagerande_beteende" />
+      <enumeration value="sjalvskadebeteende_utan_aktuell_sjalvskadeh" />
+      <enumeration value="bmi_lt_14" />
+      <enumeration value="forsamrad_kognitiv_funktion_pga_svaltpaverk" />
+      <enumeration value="behov_av_att_bryta_recidiv_av_an_som_varat_" />
+      <enumeration value="bmi_14175" />
+      <enumeration value="hetsatning_medutan_efterfoljande_sjalvrensn" />
+      <enumeration value="pataglig_somnstorning_trotthetskanslor" />
+      <enumeration value="dissociativa_symtom" />
+      <enumeration value="stupor" />
+      <enumeration value="angestoro_som_avsevart__begransar_vardaglig" />
+      <enumeration value="forekomst_av_angestoro" />
+      <enumeration value="isoleringstendens" />
+      <enumeration value="koncentrationsvarigheter" />
+      <enumeration value="apati" />
+      <enumeration value="desorienterad_konfusion" />
+      <enumeration value="forsamrat_minne_sprakstorning_nedsatt_motor" />
+      <enumeration value="for_omgivningen_tydligt_avvikande_beteende_" />
+      <enumeration value="aggressivitet" />
+      <enumeration value="bullrighet" />
+      <enumeration value="snabbt_vaxlande_humor" />
+      <enumeration value="uttalade_psykotiska_symtom" />
+      <enumeration value="bristande_emotionell_kontakt" />
+      <enumeration value="misstanke_om_bristande_trovardighet" />
+      <enumeration value="negativ_attityd" />
+      <enumeration value="aktuell_allvarlig_suicidhandling" />
+      <enumeration value="uttalade_suicidala_avsikter_eller_planer" />
+      <enumeration value="forekomst_av_suicidplaner" />
+      <enumeration value="nyligen_utford_suicidhandling" />
+      <enumeration value="uttalade_suicidtankar" />
+      <enumeration value="tidigare_suicidforsok_i_anamnesen" />
+      <enumeration value="dehydrering" />
+      <enumeration value="hypertermi" />
+      <enumeration value="mutism_eller_stupor" />
+      <enumeration value="automatisk_lydnad" />
+      <enumeration value="ekolali_upprepning_av_andra_ord" />
+      <enumeration value="ekopraxi_immitation_andras_rorelser" />
+      <enumeration value="konfusion" />
+      <enumeration value="muskelrigiditet" />
+      <enumeration value="stereotypier_enkla_upprepade_rorelser" />
+      <enumeration value="vaxliknande_bojlighet" />
+      <enumeration value="starttid" />
+      <enumeration value="sluttid" />
+      <enumeration value="startdatum" />
+      <enumeration value="slutdatum" />
+      <enumeration value="spo2luft" />
+      <enumeration value="af" />
+      <enumeration value="puls" />
+      <enumeration value="bt_systoliskt" />
+      <enumeration value="bt_diastoliskt" />
+      <enumeration value="vikt" />
+      <enumeration value="temp" />
+      <enumeration value="SpO2Normal" />
+      <enumeration value="SpO2Red" />
+      <enumeration value="SpO2Total" />
+      <enumeration value="AFGreenOrange" />
+      <enumeration value="AFRed" />
+      <enumeration value="AFTotal" />
+      <enumeration value="PulsYellowGreen" />
+      <enumeration value="PulsOrange" />
+      <enumeration value="PulsTotal" />
+      <enumeration value="SbtTotal" />
+      <enumeration value="RlsGreenOrange" />
+      <enumeration value="RlsTotal" />
+      <enumeration value="TempYellowGreen" />
+      <enumeration value="TempOrange" />
+      <enumeration value="TempTotal" />
+      <enumeration value="gravid" />
+      <enumeration value="rls" />
+      <enumeration value="spo2lufto2" />
+      <enumeration value="pulsor" />
+      <enumeration value="larmtid" />
+      <enumeration value="ambnr" />
+      <enumeration value="ankomsttid" />
+      <enumeration value="remfr" />
+      <enumeration value="klin" />
+      <enumeration value="skadekortsnr" />
+      <enumeration value="rumsnr" />
+      <enumeration value="overkanslig_text" />
+      <enumeration value="fritext1" />
+      <enumeration value="fritext2" />
+      <enumeration value="score" />
+      <enumeration value="tolkbehov_text" />
+      <enumeration value="medgivande" />
+      <enumeration value="idstyrkt" />
+      <enumeration value="strada" />
+      <enumeration value="overkanslig" />
+      <enumeration value="blodsmitta" />
+      <enumeration value="multiresbaktmisstanke" />
+      <enumeration value="okadfallrisk" />
+      <enumeration value="tolkbehov" />
+      <enumeration value="sokorsak" />
+      <enumeration value="sokorsak1" />
+      <enumeration value="sokorsak2" />
+      <enumeration value="sokorsak3" />
+      <enumeration value="aktuellt" />
+      <enumeration value="tidigarefrisk" />
+      <enumeration value="njursjukdom" />
+      <enumeration value="leversjukdom" />
+      <enumeration value="lungsjukdom" />
+      <enumeration value="kardiovaskularsjd" />
+      <enumeration value="immunosuppr" />
+      <enumeration value="blodningssjdakbeh" />
+      <enumeration value="diabetes" />
+      <enumeration value="diabetes_ins" />
+      <enumeration value="diabetes_tabl" />
+      <enumeration value="hjartsvikt" />
+      <enumeration value="malignitet" />
+      <enumeration value="Oplt3man" />
+      <enumeration value="cerebrovaskular" />
+      <enumeration value="omvardnadsbehov_gasta" />
+      <enumeration value="omvardnadsbehov_toa" />
+      <enumeration value="omvardnadsbehov_dricka" />
+      <enumeration value="omvardnadsbehov_orienterad" />
+      <enumeration value="datum" />
+      <enumeration value="ekg_amb_sign" />
+      <enumeration value="ekg_akm_sign" />
+      <enumeration value="ess_vald" />
+      <enumeration value="ess_ssk_sign" />
+      <enumeration value="ess_ssk_kl" />
+      <enumeration value="lakartriage_sign" />
+      <enumeration value="blaprio" />
+      <enumeration value="ekg_amb" />
+      <enumeration value="ekg_akm" />
+      <enumeration value="ofriluftvag" />
+      <enumeration value="stridor" />
+      <enumeration value="spo2_lt90_med" />
+      <enumeration value="af_gt30" />
+      <enumeration value="rr_gt130" />
+      <enumeration value="sbt_lt90" />
+      <enumeration value="medvetslos" />
+      <enumeration value="krampanfall" />
+      <enumeration value="rod_ess" />
+      <enumeration value="lakartriage_sign_kryss" />
+      <enumeration value="spo2_lt90_utan" />
+      <enumeration value="af_gt25" />
+      <enumeration value="puls_gt120" />
+      <enumeration value="somnolent" />
+      <enumeration value="tempgt41" />
+      <enumeration value="orange_ess" />
+      <enumeration value="spo2_9095_utan" />
+      <enumeration value="puls_gt110" />
+      <enumeration value="akut_disorienterad" />
+      <enumeration value="tempgt38" />
+      <enumeration value="gul_ess" />
+      <enumeration value="spo2_gt95_utan" />
+      <enumeration value="af_825" />
+      <enumeration value="puls_50110" />
+      <enumeration value="alert" />
+      <enumeration value="temp3538" />
+      <enumeration value="gron_ess" />
+      <enumeration value="mott_ssk_sign" />
+      <enumeration value="mott_ssk_kl" />
+      <enumeration value="omprio1_reevaluering" />
+      <enumeration value="omprio1_sign" />
+      <enumeration value="omprio1_kl" />
+      <enumeration value="omprio2_reevaluering" />
+      <enumeration value="omprio2_sign" />
+      <enumeration value="omprio2_kl" />
+      <enumeration value="omprio3_reevaluering" />
+      <enumeration value="omprio3_sign" />
+      <enumeration value="omprio3_kl" />
+      <enumeration value="prover_sign" />
+      <enumeration value="prover_kl" />
+      <enumeration value="rod_prio" />
+      <enumeration value="orange_prio" />
+      <enumeration value="gul_prio" />
+      <enumeration value="gron_prio" />
+      <enumeration value="omprio1_rod" />
+      <enumeration value="omprio1_orange" />
+      <enumeration value="omprio1_gul" />
+      <enumeration value="omprio1_gron" />
+      <enumeration value="omprio2_rod" />
+      <enumeration value="omprio2_orange" />
+      <enumeration value="omprio2_gul" />
+      <enumeration value="omprio2_gron" />
+      <enumeration value="omprio3_rod" />
+      <enumeration value="omprio3_orange" />
+      <enumeration value="omprio3_gul" />
+      <enumeration value="omprio3_gron" />
+      <enumeration value="till_rontgen_kl" />
+      <enumeration value="till_rontgen_sign" />
+      <enumeration value="ater_rontgen_kl" />
+      <enumeration value="ater_rontgen_sign" />
+      <enumeration value="pvk1_lage" />
+      <enumeration value="pvk1_sign" />
+      <enumeration value="pvk2_lage" />
+      <enumeration value="pvk2_sign" />
+      <enumeration value="prehosp1_mangdadmsatt" />
+      <enumeration value="prehosp1_sign" />
+      <enumeration value="prehosp1_kl" />
+      <enumeration value="prehosp2_mangdadmsatt" />
+      <enumeration value="prehosp2_sign" />
+      <enumeration value="prehosp2_kl" />
+      <enumeration value="prehosp3_mangdadmsatt" />
+      <enumeration value="prehosp3_sign" />
+      <enumeration value="prehosp3_kl" />
+      <enumeration value="prehosp4_mangdadmsatt" />
+      <enumeration value="prehosp4_sign" />
+      <enumeration value="prehosp4_kl" />
+      <enumeration value="prehosp5_mangdadmsatt" />
+      <enumeration value="prehosp5_sign" />
+      <enumeration value="prehosp5_kl" />
+      <enumeration value="prehosp6_mangdadmsatt" />
+      <enumeration value="prehosp6_sign" />
+      <enumeration value="prehosp6_kl" />
+      <enumeration value="tid" />
+      <enumeration value="handelse" />
+      <enumeration value="o2l" />
+      <enumeration value="sao2" />
+      <enumeration value="omvardnad" />
+      <enumeration value="eget" />
+      <enumeration value="egen_rubrik" />
+      <enumeration value="mangdadmsatt" />
+      <enumeration value="signlak" />
+      <enumeration value="signssk" />
+      <enumeration value="kolumn1" />
+      <enumeration value="kolumn2" />
+      <enumeration value="kolumn3" />
+      <enumeration value="kolumn4" />
+      <enumeration value="kolumn5" />
+      <enumeration value="effekt" />
+      <enumeration value="bastest_text" />
+      <enumeration value="bastest_enh" />
+      <enumeration value="fritext1_text" />
+      <enumeration value="fritext2_text" />
+      <enumeration value="fritext3_text" />
+      <enumeration value="arteriell_blodgas" />
+      <enumeration value="arteriell_blodgas_intern" />
+      <enumeration value="venos_blodgas" />
+      <enumeration value="venos_blodgas_intern" />
+      <enumeration value="elstatus" />
+      <enumeration value="blodstmcrp" />
+      <enumeration value="blodstatus" />
+      <enumeration value="leverprover" />
+      <enumeration value="intoxprover" />
+      <enumeration value="pkaptt" />
+      <enumeration value="ddimer" />
+      <enumeration value="tnt" />
+      <enumeration value="ckmb" />
+      <enumeration value="krea" />
+      <enumeration value="crpintern" />
+      <enumeration value="snabbcrp" />
+      <enumeration value="snabbhb" />
+      <enumeration value="snabbglucos" />
+      <enumeration value="urinsticka" />
+      <enumeration value="urinodling" />
+      <enumeration value="uhcg" />
+      <enumeration value="blodgruppering" />
+      <enumeration value="blodgruppering_finns" />
+      <enumeration value="bastest" />
+      <enumeration value="blododling" />
+      <enumeration value="alkometer" />
+      <enumeration value="fritext1_check" />
+      <enumeration value="fritext2_check" />
+      <enumeration value="fritext3_check" />
+      <enumeration value="bladderscanvolym" />
+      <enumeration value="bladderscan_kl" />
+      <enumeration value="bladderscan_sign" />
+      <enumeration value="barnuribag_kl" />
+      <enumeration value="kadnrkuffml" />
+      <enumeration value="kadnrkuffml_sign" />
+      <enumeration value="sondnr" />
+      <enumeration value="sondnr_sign" />
+      <enumeration value="pasetomdml" />
+      <enumeration value="pasetomdml_sign" />
+      <enumeration value="urinprovridnr" />
+      <enumeration value="bladderscan" />
+      <enumeration value="barnuribag" />
+      <enumeration value="anteckning1_sign" />
+      <enumeration value="anteckning2_sign" />
+      <enumeration value="anteckning3_sign" />
+      <enumeration value="anteckning4_sign" />
+      <enumeration value="anteckning5_sign" />
+      <enumeration value="forbandgipsnackkrage1_signlak" />
+      <enumeration value="forbandgipsnackkrage1_signssk" />
+      <enumeration value="forbandgipsnackkrage1_signgips" />
+      <enumeration value="forbandgipsnackkrage2_signlak" />
+      <enumeration value="forbandgipsnackkrage2_signssk" />
+      <enumeration value="forbandgipsnackkrage2_signgips" />
+      <enumeration value="anteckning1" />
+      <enumeration value="anteckning2" />
+      <enumeration value="anteckning3" />
+      <enumeration value="anteckning4" />
+      <enumeration value="anteckning5" />
+      <enumeration value="forbandgipsnackkrage1" />
+      <enumeration value="forbandgipsnackkrage2" />
+      <enumeration value="tel" />
+      <enumeration value="vardesaker_sign" />
+      <enumeration value="idband_sign" />
+      <enumeration value="narstaende_kontaktad" />
+      <enumeration value="namn" />
+      <enumeration value="kommentar" />
+      <enumeration value="vardesaker_tillvaratagna" />
+      <enumeration value="vardesaker_lamnat" />
+      <enumeration value="idband_sedantidigare" />
+      <enumeration value="idband_patientfatt" />
+      <enumeration value="eller" />
+      <enumeration value="pulsblodtrycksaturationpox_text" />
+      <enumeration value="vakenhetrlstemp_text" />
+      <enumeration value="opanmald" />
+      <enumeration value="provtagningpaavdelning" />
+      <enumeration value="avdrapptillssk" />
+      <enumeration value="hemavd" />
+      <enumeration value="rapporteradavssksign" />
+      <enumeration value="lakaresign" />
+      <enumeration value="ansvariglakare" />
+      <enumeration value="rontgenundersokkonsultfranavd" />
+      <enumeration value="akutanteckning" />
+      <enumeration value="peros_fasta" />
+      <enumeration value="peros_frittflytande" />
+      <enumeration value="peros_normalkost" />
+      <enumeration value="multiresbakterie" />
+      <enumeration value="mask" />
+      <enumeration value="grimma" />
+      <enumeration value="uppkoppladpamonitor" />
+      <enumeration value="pulsblodtrycksaturationpox" />
+      <enumeration value="vakenhetrlstemp" />
+      <enumeration value="ischemiovervakning" />
+      <enumeration value="telemetri" />
+      <enumeration value="vatskelista" />
+      <enumeration value="urinmatning" />
+      <enumeration value="timdiures" />
+      <enumeration value="besttextambulans_tid" />
+      <enumeration value="resultatmedskickade_text" />
+      <enumeration value="hemtjanstdskkontaktad_sign" />
+      <enumeration value="pvkut" />
+      <enumeration value="gulamappen" />
+      <enumeration value="medicinerdosettmedskickade" />
+      <enumeration value="resultatmedskickade" />
+      <enumeration value="besttextambulans" />
+      <enumeration value="hemtjanstdskkontaktad" />
+      <enumeration value="vald_orsak" />
+      <enumeration value="huvudorsak" />
+      <enumeration value="Godkann" />
+      <enumeration value="ankomstsatt" />
+    </restriction>
+  </simpleType>
+
+  <!--*****     Patient     *****-->
+  <complexType name="PatientED1">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="personnr" type="tns:String50" />
+      <element minOccurs="0" maxOccurs="1" name="namn" type="tns:Namn" />
+      <element minOccurs="0" maxOccurs="unbounded" name="adressED1" type="tns:AdressED1" />
+      <element minOccurs="0" maxOccurs="unbounded" name="telefonED1" type="tns:TelefonED1" />
+      <element minOccurs="0" maxOccurs="unbounded" name="tolkbehovED1" type="tns:TolkbehovED1" />
+      <element minOccurs="0" maxOccurs="unbounded" name="narstaendeED1" type="tns:NarstaendeED1" />
+      <element minOccurs="0" maxOccurs="unbounded" name="foretradareED1" type="tns:ForetradareED1" />
+      <element minOccurs="0" maxOccurs="1" name="underskrift" type="tns:OrtDatum" />
+      <element minOccurs="1" maxOccurs="1" name="kon" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="fodelsetidpunkt" type="dateTime" />
+      <element minOccurs="0" maxOccurs="1" name="etnicitetED1" type="tns:EtnicitetED1" />
+      <element minOccurs="0" maxOccurs="1" name="avlidenED1" type="tns:AvlidenED1" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" /> 
+  </complexType>
+  <complexType name="EtnicitetED1">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="folkgrupp" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="land" type="tns:String50" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <complexType name="ForetradareED1">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="personnr" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="relation" type="tns:String50" />
+      <element minOccurs="0" maxOccurs="unbounded" name="namn" type="tns:Namn" />
+      <element minOccurs="0" maxOccurs="unbounded" name="telefonED1" type="tns:TelefonED1" />
+      <element minOccurs="0" maxOccurs="unbounded" name="adressED1" type="tns:AdressED1" />
+      <element minOccurs="0" maxOccurs="1" name="underskrift" type="tns:OrtDatum" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+    <attribute name="typ" type="tns:enum_Foretradare" />
+  </complexType>
+  <simpleType name="enum_Foretradare">
+    <!--Klass 4 - dynamisk -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="Standard">
+        <annotation>
+          <documentation>Standardvärde (default)</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <complexType name="NarstaendeED1">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="personnr" type="tns:String50" />
+      <element minOccurs="0" maxOccurs="unbounded" name="namn" type="tns:Namn" />
+      <element minOccurs="0" maxOccurs="unbounded" name="telefonED1" type="tns:TelefonED1" />
+      <element minOccurs="0" maxOccurs="unbounded" name="adressED1" type="tns:AdressED1" />
+      <element minOccurs="1" maxOccurs="1" name="relation" type="tns:String50" />
+      <element minOccurs="0" maxOccurs="1" name="underskrift" type="tns:OrtDatum" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+    <attribute name="typ" type="tns:enum_Narstaende" />
+  </complexType>
+  <simpleType name="enum_Narstaende">
+    <!--Klass 4 - dynamisk -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="Standard">
+        <annotation>
+          <documentation>Standardvärde (default)</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <complexType name="TolkbehovED1">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="behov" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="bestalld" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="sprak" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="tolksatt" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="registreringsdatum" type="date" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+    <attribute name="typ" type="tns:enum_Tolkbehov" />
+  </complexType>
+  <simpleType name="enum_Tolkbehov">
+    <!--Klass 4 - dynamisk -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="Standard">
+        <annotation>
+          <documentation>Standardvärde (default)</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <complexType name="AvlidenED1">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="tidpunkt" type="time" />
+      <element minOccurs="1" maxOccurs="1" name="datum" type="date" />
+      <element minOccurs="1" maxOccurs="1" name="varde" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="aktuellt" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="titel" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="orsak" type="tns:StringUnbounded" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid"/>
+  </complexType>
+  <!--*****     Sjukvårdsenhet     *****-->
+  <complexType name="EnheterED1">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="enhetED1" type="tns:EnhetED1" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid"/>
+  </complexType>
+  <complexType name="EnhetED1">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="enhet" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="avdelning" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="klinik" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="sjukhus" type="tns:String50" />
+      <element minOccurs="0" maxOccurs="unbounded" name="adressED1" type="tns:AdressED1" />
+      <element minOccurs="0" maxOccurs="unbounded" name="telefonED1" type="tns:TelefonED1" />
+      <element minOccurs="0" maxOccurs="unbounded" name="personalED1" type="tns:PersonalED1" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+    <attribute name="typ" type="tns:enum_EnhetsTyp" />
+  </complexType>
+  <simpleType name="enum_EnhetsTyp">
+    <!--Klass 2 - Fast -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="Ansvarig">
+        <annotation>
+          <documentation>Ansvarig Enhet</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Remitterad">
+        <annotation>
+          <documentation>Remitterad Enhet</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Undersokning">
+        <annotation>
+          <documentation>Undersökningsplats</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Behandling">
+        <annotation>
+          <documentation>Behandlingsplats</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <!--*****     Sjukvårdspersonal     *****-->
+  <complexType name="PersonalED1">
+    <sequence>
+      <element minOccurs="0" maxOccurs="1" name="namn" type="tns:Namn" />
+      <element minOccurs="0" maxOccurs="1" name="underskrift" type="tns:OrtDatum" />
+      <element minOccurs="1" maxOccurs="1" name="titelkod" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="titel" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="signatur" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="specialitet" type="tns:String50" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+    <attribute name="typ" type="tns:enum_PersonalTyp" />
+  </complexType>
+  <simpleType name="enum_PersonalTyp">
+    <!--Klass 2 - Fast -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="Ansvarig">
+        <annotation>
+          <documentation>Ansvarig Läkare</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Bedomande">
+        <annotation>
+          <documentation>Bedömande Läkare</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Remitterande">
+        <annotation>
+          <documentation>Remitterande Läkare</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Remitteringsmottagare">
+        <annotation>
+          <documentation>Remitteringsmottagare</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sjukskoterska">
+        <annotation>
+          <documentation>Sjuksköterska</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Underskoterska">
+        <annotation>
+          <documentation>Undersköterska</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sekreterare">
+        <annotation>
+          <documentation>Sekreterare</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <!--*****     Ortdatum     *****-->
+  <complexType name="OrtDatum">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="ort" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="datum" type="date" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <!--*****     Namn     *****-->
+  <complexType name="Namn">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="fnamn" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="mnamn" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="tnamn" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="enamn" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="knamn" type="tns:String250" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <!--*****     Adress     *****-->
+  <complexType name="AdressED1">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="adresstypED1" type="tns:AdressTypED1" />
+      <element minOccurs="0" maxOccurs="unbounded" name="gilttid" type="tns:Giltighetstid" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+    <attribute name="typ" type="tns:enum_AdressTyp" />
+  </complexType>
+  <complexType name="AdressTypED1">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="del" type="tns:String50" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+    <attribute name="typ" type="tns:enum_AdressDel" />
+  </complexType>
+  <complexType name="Giltighetstid">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="fram" type="date" />
+      <element minOccurs="1" maxOccurs="1" name="tillm" type="date" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <simpleType name="enum_AdressDel">
+    <!--Klass 2 - Fast -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="BNM">
+        <annotation>
+          <documentation>Båtnamn</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="CNT">
+        <annotation>
+          <documentation>Land</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="CPA">
+        <annotation>
+          <documentation>Landsting eller församling</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="CTY">
+        <annotation>
+          <documentation>Stad</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="FNM">
+        <annotation>
+          <documentation>Lägenhetsnummer</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="HNR">
+        <annotation>
+          <documentation>Husnummer</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="HNM">
+        <annotation>
+          <documentation>Husnamn</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="POB">
+        <annotation>
+          <documentation>Postbox</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="SAL">
+        <annotation>
+          <documentation>Gatuadress</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="STA">
+        <annotation>
+          <documentation>Delstat eller provins</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="STR">
+        <annotation>
+          <documentation>Gatunamn</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="HP">
+        <annotation>
+          <documentation>Hemsida</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="EPO">
+        <annotation>
+          <documentation>E-post</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="PNR">
+        <annotation>
+          <documentation>Postnummer</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="PAD">
+        <annotation>
+          <documentation>Postadress</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="enum_AdressTyp">
+    <!--Klass 2 - Fast -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="BIR">
+        <annotation>
+          <documentation>Födelseplats</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="H">
+        <annotation>
+          <documentation>Hem</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="HP">
+        <annotation>
+          <documentation>Ordinarie hemadress</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="HV">
+        <annotation>
+          <documentation>Fritidsbostad</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="WP">
+        <annotation>
+          <documentation>Arbetsplats</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <!--*****     Telefon     *****-->
+  <complexType name="TelefonED1">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="nummer" type="tns:String50" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+    <attribute name="typ" type="tns:enum_TelefonTyp" />
+  </complexType>
+  <simpleType name="enum_TelefonTyp">
+    <!--Klass 2 - Fast -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="Hem">
+        <annotation>
+          <documentation>Hemtelefon</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Arbete">
+        <annotation>
+          <documentation>Arbetstelefon</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="AS">
+        <annotation>
+          <documentation>Telefonsvarare</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="EC">
+        <annotation>
+          <documentation>Nödkontakt</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Mobil">
+        <annotation>
+          <documentation>Mobilkontakt</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="PG">
+        <annotation>
+          <documentation>Personsökare</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="FX">
+        <annotation>
+          <documentation>Telefax</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <!--*****     Diagnos     *****-->
+  <complexType name="DiagnosED1">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="deldiagnosED1" type="tns:DelDiagnosED1" />
+      <element minOccurs="0" maxOccurs="unbounded" name="anamnesED1" type="tns:AnamnesED1" />
+      <element minOccurs="0" maxOccurs="unbounded" name="statusED1" type="tns:StatusED1" />
+      <!--Symptom ersätts av status helt-->
+      <!-- <element minOccurs="0" maxOccurs="unbounded" name="symptomED1" type="tns:SymptomED1" />-->
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <complexType name="DelDiagnosED1">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="diagnoskod" type="tns:Diagnoskod2" />
+      <element minOccurs="1" maxOccurs="1" name="diagnos" type="tns:String100" />
+      <element minOccurs="1" maxOccurs="1" name="aktuellt" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="titel" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="beskrivning" type="tns:StringUnbounded" />
+      <element minOccurs="1" maxOccurs="1" name="datum" type="date" />
+      <element minOccurs="1" maxOccurs="1" name="patientvetskap" type="tns:String50" />
+      <!--Tidigare behandling-->
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+    <attribute name="typ" type="tns:enum_DiagnosTyp" />
+  </complexType>
+  <simpleType name="Diagnoskod2">
+    <annotation>
+      <documentation>ICD 10 (ex. F20 eller F20.1)</documentation>
+    </annotation>
+    <restriction base="string">
+      <minLength value="3" />
+      <maxLength value="10" />
+      <pattern value="[A-Z]{1}\d{2}" />
+      <pattern value="[A-Z]{1}\d{2}[A-Z0-9]" />
+      <pattern value="[A-Z]{1}\d{2}.[A-Z0-9]{1}" />
+      <pattern value="[A-Z]{1}\d{2}.[A-Z0-9]{1}[A-Z0-9*]{1}" />
+    </restriction>
+  </simpleType>
+  <simpleType name="enum_DiagnosTyp">
+    <!--Klass 3 - Standard -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="Primar">
+        <annotation>
+          <documentation>Primärdiagnos</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sekundar">
+        <annotation>
+          <documentation>Sekundärdiagnos</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Preleminar">
+        <annotation>
+          <documentation>Preleminär diagnos</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Faststalld">
+        <annotation>
+          <documentation>Fastställd diagnos</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Misstankt">
+        <annotation>
+          <documentation>Misstänkt diagnos</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Bakomliggande">
+        <annotation>
+          <documentation>Bakomliggande diagnos</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Biverkning">
+        <annotation>
+          <documentation>Biverkning</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <complexType name="SymptomED1">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="varde" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="aktuellt" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="titel" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="beskrivning" type="tns:StringUnbounded" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+    <attribute name="typ" type="tns:enum_SymptomTyp" />
+  </complexType>
+  <simpleType name="enum_SymptomTyp">
+    <!--Klass 4 - Dynamisk -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="Standard">
+        <annotation>
+          <documentation>Standardvärde (default)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="EGEN">
+        <annotation>
+          <documentation>Userinput - när typ väljs av användaren via Textbox</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="ANNAN">
+        <annotation>
+          <documentation>Annan/Ospecificerad</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <complexType name="AnamnesED1">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="besoksorsak" type="tns:StringUnbounded" />
+      <element minOccurs="1" maxOccurs="1" name="datum" type="date" />
+      <element minOccurs="1" maxOccurs="1" name="varde" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="aktuellt" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="titel" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="beskrivning" type="tns:StringUnbounded" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+    <attribute name="event" type="tns:enum_EventList" />
+  </complexType>
+  <complexType name="StatusED1">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="statusvardeED1" type="tns:StatusVardeED1" />
+      <element minOccurs="1" maxOccurs="1" name="somatisk" type="tns:StringUnbounded" />
+      <element minOccurs="1" maxOccurs="1" name="psykisk" type="tns:StringUnbounded" />
+      <element minOccurs="1" maxOccurs="1" name="tidpunkt" type="time" />
+      <element minOccurs="1" maxOccurs="1" name="datum" type="date" />
+      <element minOccurs="0" maxOccurs="unbounded" name="undersokningED1" type="tns:UndersokningED1" />
+      <element minOccurs="0" maxOccurs="unbounded" name="behandlingED1" type="tns:BehandlingED1" />
+      <element minOccurs="0" maxOccurs="unbounded" name="administrationED1" type="tns:AdministrationED1" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+    <attribute name="event" type="tns:enum_EventList" />
+  </complexType>
+  <simpleType name="enum_EventList">
+    <!--Klass 2 - Fast -->
+    <!--Fattas värden, lägg då till enligt följden-->
+    <!--Används aldrig själv utan endast som en numrering istället för [1],[2],...,[n] tillsammans med annan enum i samma eller överordnad typ-->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="Standard">
+        <annotation>
+          <documentation>Standardvärde (default)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="EV1">
+        <annotation>
+          <documentation>Tillfälle 1</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="EV2">
+        <annotation>
+          <documentation>Tillfälle 2</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="EV3">
+        <annotation>
+          <documentation>Tillfälle 3</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="EV4">
+        <annotation>
+          <documentation>Tillfälle 4</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="EV5">
+        <annotation>
+          <documentation>Tillfälle 5</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="EV6">
+        <annotation>
+          <documentation>Tillfälle 6</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="EV7">
+        <annotation>
+          <documentation>Tillfälle 7</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="EV8">
+        <annotation>
+          <documentation>Tillfälle 8</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="EV9">
+        <annotation>
+          <documentation>Tillfälle 9</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="EV10">
+        <annotation>
+          <documentation>Tillfälle 10</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <complexType name="StatusVardeED1">
+    <sequence>
+      <!--Används för värde, ex. vikt: 90kg-->
+      <element minOccurs="1" maxOccurs="1" name="varde" type="tns:String50" />
+      <!--Används för ja/nej kryss (ex. har värdet tagits?)-->
+      <element minOccurs="1" maxOccurs="1" name="aktuellt" type="tns:String50" />
+      <!--Används för beskrivning-->
+      <element minOccurs="1" maxOccurs="1" name="beskrivning" type="tns:StringUnbounded" />
+      <!--Används vid fölt där anv. får skriva en egen statustitel-->
+      <element minOccurs="1" maxOccurs="1" name="titel" type="tns:String50" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+    <attribute name="typ" type="tns:enum_StatusTyp" />
+  </complexType>
+  <simpleType name="enum_StatusTyp">
+    <!--Klass 4 - Dynamisk -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="SBLT">
+        <annotation>
+          <documentation>Systoliskt Blodtryck (övre)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="DBLT">
+        <annotation>
+          <documentation>Diastoliskt Blodtryck (undre)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="LANGD">
+        <annotation>
+          <documentation>Längd</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="VIKT">
+        <annotation>
+          <documentation>Vikt</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="AGE">
+        <annotation>
+          <documentation>Ålder</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="BLV">
+        <annotation>
+          <documentation>Blodvärde</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="PAD">
+        <annotation>
+          <documentation>PAD-svar</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="BUK">
+        <annotation>
+          <documentation>Bukomfång</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="TRYCK">
+        <annotation>
+          <documentation>Tryckmätning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="CYST">
+        <annotation>
+          <documentation>Urologi - Cystoskopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="TRUL">
+        <annotation>
+          <documentation>Urologi - TransRektalt UltraLjud</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="MNP">
+        <annotation>
+          <documentation>Urologi - MNP</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="IPSS">
+        <annotation>
+          <documentation>Urologi - International Prostate Symptom Score (Symptomskattning vid prostatabesvär)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="TUMT">
+        <annotation>
+          <documentation>Urologi - Transurethral Microwave Thermotherapy of the Prostate (Mikrovågsbehandling)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="ESWL">
+        <annotation>
+          <documentation>Urologi - Extracorporeal shock wave lithotripsy (Stötvågsbehandling)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="FLRE">
+        <annotation>
+          <documentation>Urologi - Flöde/resurin</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="URODL">
+        <annotation>
+          <documentation>Urologi - Urinodling</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="REKT">
+        <annotation>
+          <documentation>Tarm - Rektoskopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="SIGM">
+        <annotation>
+          <documentation>Sigmoideoskopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="KOLO">
+        <annotation>
+          <documentation>Tarm - Koloskopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="GAST">
+        <annotation>
+          <documentation>Tarm - Gastroskopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="AVFO">
+        <annotation>
+          <documentation>Tarm - Avföringsodling</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="KLYX">
+        <annotation>
+          <documentation>Tarm - KLYX</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="MAMM">
+        <annotation>
+          <documentation>Bröst - Mammografi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="BIOP">
+        <annotation>
+          <documentation>Biopsi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="BLGR">
+        <annotation>
+          <documentation>Boldprov - Blodgrupp</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="BLS">
+        <annotation>
+          <documentation>Boldprov - Blodstatus</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="ELS">
+        <annotation>
+          <documentation>Boldprov - Elstatus</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="KREA">
+        <annotation>
+          <documentation>Boldprov - Kreatinin</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="LEVER">
+        <annotation>
+          <documentation>Boldprov - Leverstatus</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="CRP">
+        <annotation>
+          <documentation>Boldprov - C-reaktivt protein</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="SR">
+        <annotation>
+          <documentation>Boldprov - SR/B-SR</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="PSA">
+        <annotation>
+          <documentation>Boldprov - Prostataspecifikt antigen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="CEA">
+        <annotation>
+          <documentation>Boldprov - Carcinoembryonalt antigen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="TSH">
+        <annotation>
+          <documentation>Boldprov - Tyreoideastimulerande hormon</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="PK">
+        <annotation>
+          <documentation>Boldprov - Protrombinkomplex</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="BLSM">
+        <annotation>
+          <documentation>Blodsmitta</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="TET">
+        <annotation>
+          <documentation>Testismarkörer</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="JNOT">
+        <annotation>
+          <documentation>Allergi - Jordnötter</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <!--*****     Lakemedel   *****-->
+  <complexType name="LakemedelED1">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="lakemedelshandelseED1" type="tns:LakemedelsHandelseED1" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <complexType name="LakemedelsHandelseED1">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="preparatED1" type="tns:PreparatED1" />
+      <element minOccurs="1" maxOccurs="1" name="tidpunkt" type="time" />
+      <element minOccurs="1" maxOccurs="1" name="datum" type="date" />
+      <element minOccurs="1" maxOccurs="1" name="orsak" type="tns:StringUnbounded" />
+      <element minOccurs="1" maxOccurs="1" name="beskrivning" type="tns:StringUnbounded" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+    <attribute name="typ" type="tns:enum_HandelseTyp" />
+    <attribute name="event" type="tns:enum_EventList" />
+  </complexType>
+  <simpleType name="enum_HandelseTyp">
+    <!--Klass 1 - Låst -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="Ordination">
+        <annotation>
+          <documentation>Ordination/Förskrivning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Utlamning">
+        <annotation>
+          <documentation>Utlämning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Intag">
+        <annotation>
+          <documentation>Intag</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Biverkning"><!--Användas när läkemedel orsakat en biverkning-->
+        <annotation>
+          <documentation>Biverkning</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <complexType name="PreparatED1">
+    <sequence>
+      <!--Används för både läkemedel/anestesi-->
+      <!--Används för värde, ex. 4st-->
+      <element minOccurs="1" maxOccurs="1" name="varde" type="tns:String50" />
+      <!--Används för styrka, ex. 100mg-->
+      <element minOccurs="1" maxOccurs="1" name="styrka" type="tns:String50" />
+      <!--Används för ja/nej kryss-->
+      <element minOccurs="1" maxOccurs="1" name="aktuellt" type="tns:String50" />
+      <!--Används för behandlingens varaktighet-->
+      <element minOccurs="1" maxOccurs="1" name="frm" type="date" />
+      <!--Används för behandlingens varaktighet-->
+      <element minOccurs="1" maxOccurs="1" name="tom" type="date" />
+      <!--Används vid fölt där anv. får skriva en egen statustitel-->
+      <element minOccurs="1" maxOccurs="1" name="titel" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="beskrivning" type="tns:StringUnbounded" />
+      <!--(För att det ska kunna finnas flera former för varje läkemedel, t.ex. både spruta & tablett)-->
+      <element minOccurs="0" maxOccurs="unbounded" name="preparatformED1" type="tns:PreparatFormED1"/>
+      <!--Biverkning-->
+      <element minOccurs="0" maxOccurs="unbounded" name="biverkningED1" type="tns:BiverkningED1"/>
+      <element minOccurs="0" maxOccurs="unbounded" name="doseringED1" type="tns:DoseringED1"/>
+    </sequence>
+    <attribute name="__Id" type="tns:guid"/>
+    <attribute name="typ" type="tns:enum_PreparatNamn" />
+  </complexType>
+  <simpleType name="enum_PreparatNamn">
+    <!--Klass 4 - Dynamisk -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="Standard">
+        <annotation>
+          <documentation>Standardvärde (default)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="EGEN">
+        <annotation>
+          <documentation>Userinput - när typ väljs av användaren via Textbox</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="ANNAN">
+        <annotation>
+          <documentation>Annan/Ospecificerad</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="REHY">
+        <annotation>
+          <documentation>Rehydrex</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <complexType name="PreparatFormED1">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="varde" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="aktuellt" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="titel" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="beskrivning" type="tns:StringUnbounded" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid"/>
+    <attribute name="typ" type="tns:enum_PreparatFormTyp" />
+  </complexType>
+  <simpleType name="enum_PreparatFormTyp">
+    <!--Klass 3 - Standard -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="Standard">
+        <annotation>
+          <documentation>Standardvärde (default)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="EGEN">
+        <annotation>
+          <documentation>Userinput - när typ ej kan fastställas t.ex. för Textbox</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Tablett">
+        <annotation>
+          <documentation>Tablett</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Injektion">
+        <annotation>
+          <documentation>Spruta/Injektion</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Mask">
+        <annotation>
+          <documentation>Mask</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sond">
+        <annotation>
+          <documentation>Sond</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Intubation">
+        <annotation>
+          <documentation>Intubation - införande av en tub (rör) i luftstrupen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Intravenos">
+        <annotation>
+          <documentation>Intravenös</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Epidural">
+        <annotation>
+          <documentation>Epidural</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Centralvenkateter">
+        <annotation>
+          <documentation>Centralvenkateter, kateter som lägges i central ven</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <complexType name="DoseringED1">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="varde" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="aktuellt" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="titel" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="beskrivning" type="tns:StringUnbounded" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid"/>
+    <attribute name="typ" type="tns:enum_DoseringsTyp" />
+  </complexType>
+  <simpleType name="enum_DoseringsTyp">
+    <!--Klass 3 - Standard -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="Standard">
+        <annotation>
+          <documentation>Standardvärde (default)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="EGEN">
+        <annotation>
+          <documentation>Userinput - när typ ej kan fastställas t.ex. för Textbox</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Mandag">
+        <annotation>
+          <documentation>Måndag</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Tisdag">
+        <annotation>
+          <documentation>Tisdag</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Onsdag">
+        <annotation>
+          <documentation>Onsdag</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Torsdag">
+        <annotation>
+          <documentation>Torsdag</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Fredag">
+        <annotation>
+          <documentation>Fredag</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Lordag">
+        <annotation>
+          <documentation>Lördag</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sondag">
+        <annotation>
+          <documentation>Söndag</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <!--*****     Kontakt     *****-->
+  <complexType name="KontaktED1">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="kontakteventED1" type="tns:KontaktEventED1" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid"/>
+  </complexType>
+  <complexType name="KontaktEventED1">
+    <sequence>
+      <!--använd sjukvenh/sjukvpers för undersökare/plats info-->
+      <!--Vid Ordination     : det som ska göras-->
+      <!--för det som har gjorts se diagnos/status för undersökning eller behandling (även om inga resulatat nås), ordination är endast det som planeras göras-->
+      <element minOccurs="0" maxOccurs="unbounded" name="undersokningED1" type="tns:UndersokningED1" />
+      <element minOccurs="0" maxOccurs="unbounded" name="behandlingED1" type="tns:BehandlingED1" />
+      <element minOccurs="0" maxOccurs="unbounded" name="administrationED1" type="tns:AdministrationED1" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid"/>
+    <attribute name="event" type="tns:enum_EventList" />
+  </complexType>
+  <complexType name="BehandlingED1">
+    <sequence>
+      <!--använd sjukvenh/sjukvpers för avsändar/mottagar info-->
+      <element minOccurs="0" maxOccurs="unbounded" name="biverkningED1" type="tns:BiverkningED1"/>
+      <element minOccurs="1" maxOccurs="1" name="resultat" type="tns:StringUnbounded" />
+      <element minOccurs="1" maxOccurs="1" name="varde" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="aktuellt" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="titel" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="beskrivning" type="tns:StringUnbounded" />
+      <element minOccurs="1" maxOccurs="1" name="tidpunkt" type="time" />
+      <element minOccurs="1" maxOccurs="1" name="datum" type="date" />
+      <!--status = Ej påbörjad/Inställd/Pågående/Avbruten/Avslutad - Enligt V-TIM-->
+      <element minOccurs="1" maxOccurs="1" name="status" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="prio" type="tns:String50" />
+      <element minOccurs="0" maxOccurs="unbounded" name="behandlingsdataED1" type="tns:BehandlingsDataED1"/>
+    </sequence>
+    <attribute name="__Id" type="tns:guid"/>
+    <attribute name="typ" type="tns:enum_BehandlingsTyp" />
+  </complexType>
+  <simpleType name="enum_BehandlingsTyp">
+    <!--Klass 3 - Standard -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="Standard">
+        <annotation>
+          <documentation>Standardvärde (default)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="OP">
+        <annotation>
+          <documentation>Operation</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <complexType name="BehandlingsDataED1">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="varde" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="aktuellt" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="titel" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="beskrivning" type="tns:StringUnbounded" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid"/>
+    <attribute name="typ" type="tns:enum_BehandlingsDataTyp" />
+  </complexType>
+  <simpleType name="enum_BehandlingsDataTyp">
+    <!--Klass 4 - Dynamisk -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="Standard">
+        <annotation>
+          <documentation>Standardvärde (default)</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <complexType name="BiverkningED1"><!--SKA DETTA TILL LÄKEMEDEL?-->
+    <sequence>
+      <!--Använd diagnos för diagnos och grundsjukdom!-->
+      <element minOccurs="1" maxOccurs="1" name="aktuellt" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="titel" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="datum" type="date" />
+      <element minOccurs="1" maxOccurs="1" name="beskrivning" type="tns:StringUnbounded" />
+      <element minOccurs="1" maxOccurs="1" name="status" type="tns:String100" />
+      <element minOccurs="1" maxOccurs="1" name="effekt" type="tns:StringUnbounded" />
+      <!--Återkom reaktionen vid insättning-->
+      <element minOccurs="1" maxOccurs="1" name="insattning" type="tns:String50" />
+      <!--Upphör reaktionen vid utsättning-->
+      <element minOccurs="1" maxOccurs="1" name="utsattning" type="tns:String50" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid"/>
+  </complexType>
+  <complexType name="UndersokningED1">
+    <sequence>
+      <!--använd sjukvenh/sjukvpers för avsändar/mottagar info-->
+      <!--använd Diagnos för resultat av undersökningen (värden, m.m.)-->
+      <element minOccurs="1" maxOccurs="1" name="varde" type="tns:String50" />
+      <!--Används för ja/nej kryss-->
+      <element minOccurs="1" maxOccurs="1" name="aktuellt" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="titel" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="beskrivning" type="tns:StringUnbounded" />
+      <element minOccurs="1" maxOccurs="1" name="tidpunkt" type="time" />
+      <element minOccurs="1" maxOccurs="1" name="datum" type="date" />
+      <element minOccurs="1" maxOccurs="1" name="status" type="tns:String50" />
+      <!--Ej påbörjad/Inställd/Pågående/Avbruten/Avslutad - Enligt V-TIM-->
+      <element minOccurs="1" maxOccurs="1" name="prio" type="tns:String50" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid"/>
+    <attribute name="typ" type="tns:enum_UndersokningsTyp" />
+  </complexType>
+  <simpleType name="enum_UndersokningsTyp">
+    <!--Klass 4 - Dynamisk -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="Standard">
+        <annotation>
+          <documentation>Standardvärde (default)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="EGEN">
+        <annotation>
+          <documentation>Userinput - när typ ej kan fastställas t.ex. för Textbox</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="ANNAN">
+        <annotation>
+          <documentation>Annan/Ospecificerad</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="GAST">
+        <annotation>
+          <documentation>Gastroskopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="KOLO">
+        <annotation>
+          <documentation>Koloskopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="CYST">
+        <annotation>
+          <documentation>Cystoskopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="ESWL">
+        <annotation>
+          <documentation>Stötvågsbehandling (Extracorporeal Shock Wave Lithotripsy)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="TUMT">
+        <annotation>
+          <documentation>Mikrovågsbehandling av prostata (Transurethral Microwave Thermotherapy of the Prostate)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="RECT">
+        <annotation>
+          <documentation>Rectoskopi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="ERCP">
+        <annotation>
+          <documentation>Endoskopisk retrograd kolangiopankreatografi (Endoscopic retrograde cholangiopancreatography)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="INVT">
+        <annotation>
+          <documentation>Invasiv tryckmätning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="RTG">
+        <annotation>
+          <documentation>Röntgen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="SCG">
+        <annotation>
+          <documentation>Scintigrafi</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="UL">
+        <annotation>
+          <documentation>Ultraljud</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="MR">
+        <annotation>
+          <documentation>MR</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="CT">
+        <annotation>
+          <documentation>Datortomografi (computerized tomography)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="KU">
+        <annotation>
+          <documentation>Klinisk undersökning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="PREX">
+        <annotation>
+          <documentation>Provexcision eller operation med histopatologisk undersökning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="OBD">
+        <annotation>
+          <documentation>Obduktion med histopatologisk undersökning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="CYT">
+        <annotation>
+          <documentation>Cytologisk undersökning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="OHI">
+        <annotation>
+          <documentation>Operation utan histopatologisk undersökning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="OBDHI">
+        <annotation>
+          <documentation>Obduktion utan histopatologisk undersökning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="ALAB">
+        <annotation>
+          <documentation>Annan laboratorieundersökning</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <complexType name="AdministrationED1">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="tidpunkt" type="time" />
+      <element minOccurs="1" maxOccurs="1" name="datum" type="date" />
+      <element minOccurs="1" maxOccurs="1" name="varde" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="aktuellt" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="titel" type="tns:String50" />
+      <element minOccurs="1" maxOccurs="1" name="beskrivning" type="tns:StringUnbounded" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid"/>
+    <attribute name="typ" type="tns:enum_AdministrationsTyp" />
+  </complexType>
+  <simpleType name="enum_AdministrationsTyp">
+    <!--Klass 4 - Dynamisk -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="Standard">
+        <annotation>
+          <documentation>Standardvärde (default)</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+
+  <!-- EDComm -->
+  <simpleType name="StringNText">
+    <restriction base="string">
+      <maxLength value="1073741823" />
+    </restriction>
+  </simpleType>
+  <complexType name="FormItem2">
+    <sequence>
+      <element name="value" type="tns:StringNText" minOccurs="0" />
+      <element name="strokes" type="tns:StringNText" minOccurs="0" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+    <attribute name="gid" type="tns:guid" />
+    <attribute name="elementid" type="tns:String250" />
+    <attribute name="confirmed" type="boolean" />
+    <attribute name="confidence" type="double" />
+    <attribute name="starttime" type="dateTime" />
+    <attribute name="endtime" type="dateTime" />
+  </complexType>
+  <complexType name="FormItems">
+    <sequence>
+      <element name="formitem2" type="tns:FormItem2" minOccurs="0" maxOccurs="unbounded" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <complexType name="CommunicationForm">
+    <sequence>
+      <element name="formitems" type="tns:FormItems" minOccurs="0" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid" />
+    <!-- Dockningsid -->
+    <attribute name="dockid" type="tns:guid" />
+    <!-- blankettid -->
+    <attribute name="formid" type="int" />
+    <!-- dockningsversion -->
+    <attribute name="dockversion" type="int" />
+    <!-- statusflagga -->
+    <attribute name="status" type="int" />
+    <!-- händelsedatum ,används för sortering -->
+    <attribute name="version" type="dateTime" />
+    <!-- id på användare, tex penid -->
+    <attribute name="userid" type="tns:String250" />
+  </complexType>
+  
+  <!--*****     Signering     *****-->
+  <complexType name="SigneringarED1"> <!--Används för tillfället inte-->
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="signeringED1" type="tns:SigneringED1" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid"/>
+    <!--<attribute name="typ" type="tns:enum_UndersokningsTyp" />-->
+  </complexType>
+  <complexType name="SigneringED1">
+    <sequence>
+      <!--Värden: Sign/Avvikelse/Historik/Avsignerat(null)/-->
+      <element minOccurs="1" maxOccurs="1" name="varde" type="tns:String50" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid"/>
+    <attribute name="typ" type="tns:enum_SigneringsTyp" />
+  </complexType>
+  <simpleType name="enum_SigneringsTyp">
+    <!--Klass 5 - Odefinierad -->
+    <restriction base="string">
+      <maxLength value="50" />
+      <enumeration value="sign">
+        <annotation>
+          <documentation>sign</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <!--*****     Check     *****-->
+  <complexType name="UserCheck">
+    <annotation>
+      <documentation>Holds user information of the check. Add this XPath to checkitem@checkpath in XAML, XmlDataProvider checkData</documentation>
+    </annotation>
+    <sequence>
+      <element name="checked" type="boolean" default="false">
+        <annotation>
+          <documentation>Set to true, on change.</documentation>
+        </annotation>
+      </element>
+      <element name="username" type="tns:String250"/>
+      <element name="usercode" type="tns:enum_UserCode"/>
+      <element name="timestamp" type="dateTime"/>
+    </sequence>
+    <attribute name="__Id" type="tns:guid"/>
+  </complexType>
+  <simpleType name="enum_UserCode">
+    <!-- SFS 1998:531 -->
+    <restriction base="string">
+      <maxLength value="5"/>
+      <enumeration value="AP">
+        <annotation>
+          <documentation>Apotekare</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="AT">
+        <annotation>
+          <documentation>Arbetsterapeut</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="AU">
+        <annotation>
+          <documentation>Audionom</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="BA">
+        <annotation>
+          <documentation>Barnmorska</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="BM">
+        <annotation>
+          <documentation>Biomedicinsk analytiker</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="DT">
+        <annotation>
+          <documentation>Dietist</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="KP">
+        <annotation>
+          <documentation>Kiropraktor</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="LG">
+        <annotation>
+          <documentation>Logoped</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="LK">
+        <annotation>
+          <documentation>Läkare</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="NA">
+        <annotation>
+          <documentation>Naprapat</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="OP">
+        <annotation>
+          <documentation>Optiker</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="OT">
+        <annotation>
+          <documentation>Ortopedingenjör</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="PS">
+        <annotation>
+          <documentation>Psykolog</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="PT">
+        <annotation>
+          <documentation>Psykoterapeut</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="RC">
+        <annotation>
+          <documentation>Receptarie</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="RS">
+        <annotation>
+          <documentation>Röntgensjuksköterska</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="SG">
+        <annotation>
+          <documentation>Sjukgymnast</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="SF">
+        <annotation>
+          <documentation>Sjukhusfysiker</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="SJ">
+        <annotation>
+          <documentation>Sjuksköterska</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="TH">
+        <annotation>
+          <documentation>Tandhygienist</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="TL">
+        <annotation>
+          <documentation>Tandläkare</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sekr">
+        <annotation>
+          <documentation>Sekr</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Läk">
+        <annotation>
+          <documentation>Läk</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Ssk">
+        <annotation>
+          <documentation>Ssk</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Arbt">
+        <annotation>
+          <documentation>Arbt</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sjg">
+        <annotation>
+          <documentation>Sjg</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Kur">
+        <annotation>
+          <documentation>Kur</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Log">
+        <annotation>
+          <documentation>Log</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Psyk">
+        <annotation>
+          <documentation>Psyk</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Diet">
+        <annotation>
+          <documentation>Diet</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Usk">
+        <annotation>
+          <documentation>Usk</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="*">
+        <annotation>
+          <documentation>Any</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <complexType name="SubCheck">
+    <annotation>
+      <documentation>Holds a specific check</documentation>
+    </annotation>
+    <sequence>
+      <element name="usercheck" type="tns:UserCheck" minOccurs="1" maxOccurs="1"/>
+      <element minOccurs="0" maxOccurs="1" name="signeringED1" type="tns:SigneringED1" />
+    </sequence>
+    <attribute name="__Id" type="tns:guid"/>
+  </complexType>
+  <complexType name="Check">
+    <annotation>
+      <documentation>Holds a number of check's</documentation>
+    </annotation>
+    <sequence>
+      <element name="subcheck" type="tns:SubCheck" minOccurs="1" maxOccurs="unbounded"/>
+    </sequence>
+    <attribute name="__Id" type="tns:guid"/>
+  </complexType>
+  <!--*****     Blankett     *****-->
+  <complexType name="Blankett">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="patientED1" type="tns:PatientED1" />
+      <element minOccurs="1" maxOccurs="1" name="enheterED1" type="tns:EnheterED1" />
+      <element minOccurs="1" maxOccurs="1" name="formlist" type="tns:FormList" />
+      <element minOccurs="1" maxOccurs="1" name="diagnosED1" type="tns:DiagnosED1" />
+      <element minOccurs="1" maxOccurs="1" name="lakemedelED1" type="tns:LakemedelED1" />
+      <element minOccurs="1" maxOccurs="1" name="kontaktED1" type="tns:KontaktED1" />
+      <element name="communicationform" type="tns:CommunicationForm" minOccurs="0" />
+    </sequence>
+    <attribute name="__mainId" type="tns:guid" />
+    <attribute name="__form" type="int" />
+    <attribute name="__IBISVersion" type="int" />
+    <attribute name="__status" type="int" />
+    <attribute name="__version" type="dateTime" />
+    <attribute name="__Id" type="tns:guid" />
+  </complexType>
+  <element name="blankett" type="tns:Blankett" />
+</schema>

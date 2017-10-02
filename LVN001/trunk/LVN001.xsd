@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="https://www.eyedoc.se/schemas/form/lvn001/2" targetNamespace="https://www.eyedoc.se/schemas/form/lvn001/2" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <complexType name="string50value">
+    <sequence>
+      <element name="value" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="string100value">
+    <sequence>
+      <element name="value" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="string250value">
+    <sequence>
+      <element name="value" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="string500value">
+    <sequence>
+      <element name="value" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="string1000value">
+    <sequence>
+      <element name="value" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="string4000value">
+    <sequence>
+      <element name="value" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="booleanvalue">
+    <sequence>
+      <element name="value" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="datevalue">
+    <sequence>
+      <element name="value" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="intvalue">
+    <sequence>
+      <element name="value" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="doublevalue">
+    <sequence>
+      <element name="value" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="stringUnboundValue">
+    <sequence>
+      <element name="value" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+
+  <!--*****     Formlist     *****-->
+  <complexType name="formlist" mixed="true">
+    <sequence>
+      <element name="formgroup" type="tns:formgroup" minOccurs="0" maxOccurs="unbounded" />
+    </sequence>
+  </complexType>
+  <complexType name="formgroup">
+    <sequence>
+      <element name="string50value" type="tns:string50value" minOccurs="0" maxOccurs="unbounded" />
+      <element name="string100value" type="tns:string100value" minOccurs="0" maxOccurs="unbounded" />
+      <element name="string250value" type="tns:string250value" minOccurs="0" maxOccurs="unbounded" />
+      <element name="string500value" type="tns:string500value" minOccurs="0" maxOccurs="unbounded" />
+      <element name="string1000value" type="tns:string1000value" minOccurs="0" maxOccurs="unbounded" />
+      <element name="stringUnboundValue" type="tns:stringUnboundValue" minOccurs="0" maxOccurs="unbounded" />
+      <element name="string4000value" type="tns:string4000value" minOccurs="0" maxOccurs="unbounded" />
+      <element name="booleanvalue" type="tns:booleanvalue" minOccurs="0" maxOccurs="unbounded" />
+      <element name="datevalue" type="tns:datevalue" minOccurs="0" maxOccurs="unbounded" />
+      <element name="intvalue" type="tns:intvalue" minOccurs="0" maxOccurs="unbounded" />
+      <element name="doublevalue" type="tns:doublevalue" minOccurs="0" maxOccurs="unbounded" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  
+  <!--*****     Patient     *****-->
+  <complexType name="patientED1">
+    <sequence>
+      <element name="adressED1" type="tns:adressED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="avlidenED1" type="tns:avlidenED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="etnicitetED1" type="tns:etnicitetED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="foretradareED1" type="tns:foretradareED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="namn" type="tns:namn" minOccurs="0" maxOccurs="unbounded" />
+      <element name="narstaendeED1" type="tns:narstaendeED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="telefonED1" type="tns:telefonED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="tolkbehovED1" type="tns:tolkbehovED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="underskrift" type="tns:underskrift" minOccurs="0" maxOccurs="unbounded" />
+      <element name="fodelsetidpunkt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="kon" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="personnr" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+  </complexType>
+  <complexType name="etnicitetED1">
+    <sequence>
+      <element name="folkgrupp" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="land" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+  </complexType>
+  <complexType name="foretradareED1">
+    <sequence>
+      <element name="adressED1" type="tns:adressED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="namn" type="tns:namn" minOccurs="0" maxOccurs="unbounded" />
+      <element name="telefonED1" type="tns:telefonED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="underskrift" type="tns:underskrift" minOccurs="0" maxOccurs="unbounded" />
+      <element name="personnr" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="relation" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="narstaendeED1">
+    <sequence>
+      <element name="adressED1" type="tns:adressED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="namn" type="tns:namn" minOccurs="0" maxOccurs="unbounded" />
+      <element name="telefonED1" type="tns:telefonED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="underskrift" type="tns:underskrift" minOccurs="0" maxOccurs="unbounded" />
+      <element name="personnr" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="relation" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="tolkbehovED1">
+    <sequence>
+      <element name="behov" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="bestalld" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="registreringsdatum" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="sprak" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="tolksatt" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="avlidenED1">
+    <sequence>
+      <element name="aktuellt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="datum" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="orsak" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="tidpunkt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="titel" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="varde" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+  </complexType>
+  
+  <!--*****     Sjukvårdsenhet     *****-->
+  <complexType name="enhetED1">
+    <sequence>
+      <element name="adressED1" type="tns:adressED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="personalED1" type="tns:personalED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="telefonED1" type="tns:telefonED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="avdelning" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="enhet" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="klinik" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="sjukhus" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="enheterED1" mixed="true">
+    <sequence>
+      <element name="enhetED1" type="tns:enhetED1" minOccurs="0" maxOccurs="unbounded" />
+    </sequence>
+  </complexType>
+  
+  <!--*****     Sjukvårdspersonal     *****-->
+  <complexType name="personalED1">
+    <sequence>
+      <element name="adressED1" type="tns:adressED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="namn" type="tns:namn" minOccurs="0" maxOccurs="unbounded" />
+      <element name="telefonED1" type="tns:telefonED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="underskrift" type="tns:underskrift" minOccurs="0" maxOccurs="unbounded" />
+      <element name="signatur" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="specialitet" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="titel" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="titelkod" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  
+  <!--*****     Ortdatum     *****-->
+  <complexType name="underskrift">
+    <sequence>
+      <element name="datum" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="ort" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+  </complexType>
+  
+  <!--*****     Namn     *****-->
+  <complexType name="namn">
+    <sequence>
+      <element name="enamn" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="fnamn" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="knamn" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="mnamn" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="tnamn" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+  </complexType>
+  
+  <!--*****     Adress     *****-->
+  <complexType name="adressED1">
+    <sequence>
+      <element name="adresstypED1" type="tns:adresstypED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="gilttid" type="tns:gilttid" minOccurs="0" maxOccurs="unbounded" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="adresstypED1">
+    <sequence>
+      <element name="del" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="gilttid">
+    <sequence>
+      <element name="fram" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="tillm" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+  </complexType>
+  
+  <!--*****     Telefon     *****-->
+  <complexType name="telefonED1">
+    <sequence>
+      <element name="nummer" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  
+  <!--*****     Diagnos     *****-->
+  <complexType name="diagnosED1" mixed="true">
+    <sequence>
+      <element name="anamnesED1" type="tns:anamnesED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="deldiagnosED1" type="tns:deldiagnosED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="statusED1" type="tns:statusED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="symptomED1" type="tns:symptomED1" minOccurs="0" maxOccurs="unbounded" />
+    </sequence>
+  </complexType>
+  <complexType name="deldiagnosED1">
+    <sequence>
+      <element name="aktuellt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="beskrivning" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="datum" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="diagnos" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="diagnoskod" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="patientvetskap" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="titel" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="symptomED1">
+    <sequence>
+      <element name="behandlingED1" type="tns:behandlingED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="undersokningED1" type="tns:undersokningED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="aktuellt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="beskrivning" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="titel" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="varde" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="anamnesED1">
+    <sequence>
+      <element name="aktuellt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="beskrivning" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="besoksorsak" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="datum" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="titel" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="varde" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="event" type="string" />
+  </complexType>
+  <complexType name="statusED1">
+    <sequence>
+      <element name="administrationED1" type="tns:administrationED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="behandlingED1" type="tns:behandlingED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="statusvardeED1" type="tns:statusvardeED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="undersokningED1" type="tns:undersokningED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="datum" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="psykisk" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="somatisk" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="tidpunkt" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="event" type="string" />
+  </complexType>
+  <complexType name="statusvardeED1">
+    <sequence>
+      <element name="aktuellt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="beskrivning" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="titel" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="varde" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  
+  <!--*****     Lakemedel   *****-->
+  <complexType name="lakemedelED1" mixed="true">
+    <sequence>
+      <element name="lakemedelshandelseED1" type="tns:lakemedelshandelseED1" minOccurs="0" maxOccurs="unbounded" />
+    </sequence>
+  </complexType>
+  <complexType name="lakemedelshandelseED1">
+    <sequence>
+      <element name="preparatED1" type="tns:preparatED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="beskrivning" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="datum" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="orsak" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="tidpunkt" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="event" type="string" />
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="preparatED1">
+    <sequence>
+      <element name="biverkningED1" type="tns:biverkningED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="doseringED1" type="tns:doseringED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="preparatformED1" type="tns:preparatformED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="aktuellt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="beskrivning" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="frm" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="styrka" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="titel" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="tom" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="varde" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="preparatformED1">
+    <sequence>
+      <element name="aktuellt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="beskrivning" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="titel" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="varde" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="doseringED1">
+    <sequence>
+      <element name="aktuellt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="beskrivning" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="titel" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="varde" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  
+  <!--*****     Kontakt     *****-->
+  <complexType name="kontaktED1" mixed="true">
+    <sequence>
+      <element name="behandlingED1" type="tns:behandlingED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="kontakteventED1" type="tns:kontakteventED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="undersokningED1" type="tns:undersokningED1" minOccurs="0" maxOccurs="unbounded" />
+    </sequence>
+  </complexType>
+  <complexType name="kontakteventED1">
+    <sequence>
+      <element name="administrationED1" type="tns:administrationED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="behandlingED1" type="tns:behandlingED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="undersokningED1" type="tns:undersokningED1" minOccurs="0" maxOccurs="unbounded" />
+    </sequence>
+    <attribute name="event" type="string" />
+  </complexType>
+  <complexType name="behandlingED1">
+    <sequence>
+      <element name="behandlingsdataED1" type="tns:behandlingsdataED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="biverkningED1" type="tns:biverkningED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="aktuellt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="beskrivning" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="datum" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="prio" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="resultat" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="status" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="tidpunkt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="titel" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="varde" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="behandlingsdataED1">
+    <sequence>
+      <element name="aktuellt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="beskrivning" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="titel" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="varde" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="biverkningED1">
+    <sequence>
+      <element name="aktuellt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="beskrivning" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="datum" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="effekt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="insattning" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="status" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="titel" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="utsattning" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+  </complexType>
+  <complexType name="undersokningED1">
+    <sequence>
+      <element name="aktuellt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="beskrivning" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="datum" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="prio" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="status" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="tidpunkt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="titel" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="varde" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  <complexType name="administrationED1">
+    <sequence>
+      <element name="aktuellt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="beskrivning" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="datum" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="tidpunkt" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="titel" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="varde" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  
+  <!--*****     Signering     *****-->
+  <complexType name="signeringED1">
+    <sequence>
+      <element name="usercheck" type="tns:usercheck" minOccurs="0" maxOccurs="unbounded" />
+      <element name="varde" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+    <attribute name="typ" type="string" />
+  </complexType>
+  
+  <!--*****     Check     *****-->
+  <complexType name="usercheck">
+    <sequence>
+      <element name="checked" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="timestamp" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="usercode" type="string" minOccurs="0" maxOccurs="1" />
+      <element name="username" type="string" minOccurs="0" maxOccurs="1" />
+    </sequence>
+  </complexType>
+  <complexType name="subcheck">
+    <sequence>
+      <element name="signeringED1" type="tns:signeringED1" minOccurs="0" maxOccurs="unbounded" />
+      <element name="usercheck" type="tns:usercheck" minOccurs="0" maxOccurs="unbounded" />
+    </sequence>
+  </complexType>
+  <complexType name="check" mixed="true">
+    <sequence>
+      <element name="subcheck" type="tns:subcheck" minOccurs="0" maxOccurs="unbounded" />
+    </sequence>
+  </complexType>
+  
+  <!--*****     Blankett     *****-->
+  <complexType name="blankett">
+    <sequence>
+      <element name="patientED1" minOccurs="0" maxOccurs="unbounded" type="tns:patientED1" />
+      <element name="enheterED1" minOccurs="0" maxOccurs="unbounded" type="tns:enheterED1" />
+      <element name="formlist" minOccurs="0" maxOccurs="unbounded" type="tns:formlist" />
+      <element name="diagnosED1" minOccurs="0" maxOccurs="unbounded" type="tns:diagnosED1" />
+      <element name="lakemedelED1" minOccurs="0" maxOccurs="unbounded" type="tns:lakemedelED1" />
+      <element name="kontaktED1" minOccurs="0" maxOccurs="unbounded" type="tns:kontaktED1" />
+      <element name="check" minOccurs="0" maxOccurs="unbounded" type="tns:check" />
+    </sequence>
+  </complexType>
+  <element name="blankett" type="tns:blankett" />
+</schema>

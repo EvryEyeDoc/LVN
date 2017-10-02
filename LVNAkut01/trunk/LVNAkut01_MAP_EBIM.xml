@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--MAP EBIM-->
+<eyedoc version="1.0">
+  <transform>
+    <global>
+      <source>
+        <xpath type="root">*/form/fieldcode</xpath>
+        <xpath type="format">field[@name='{0}']/@data</xpath>
+      </source>
+      <target>
+        <xpath type="root">blankett</xpath>
+      </target>
+    </global>
+    <rows>
+      <row>
+        <source>
+          <item action="replace" type="text">sokorsak1</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='sokorsak1']/string50value[@typ='vald_orsak']/value</item>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='sokorsak1']/string50value[@typ='huvudorsak']/value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="logic" argument="date"></item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='triagetider']/datevalue[@typ='startdatum']/value</item>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='triagetider']/string50value[@typ='starttid']/value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">Arrival</item>
+          <item action="ifempty" type="text">G&#229;ende</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Anamnes']/string50value[@typ='ankomstsatt']/value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">Arrival_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&amp;quot;Anamnes&amp;quot;]/string50value[@typ=&amp;quot;ankomstsatt&amp;quot;]/value']/@starttime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">Arrival_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&amp;quot;Anamnes&amp;quot;]/string50value[@typ=&amp;quot;ankomstsatt&amp;quot;]/value']/@endtime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">ArrivalDate</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Anamnes']/datevalue[@typ='datum']/value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">ArrivalDate_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&amp;quot;Anamnes&amp;quot;]/datevalue[@typ=&amp;quot;datum&amp;quot;]/value']/@starttime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">ArrivalDate_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&amp;quot;Anamnes&amp;quot;]/datevalue[@typ=&amp;quot;datum&amp;quot;]/value']/@endtime</item>
+        </target>
+      </row>
+      <!--Cross sends Arrival_time-->
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">ArrivalTime</item>
+          <item action="ifempty" type="xpathformat">Arrival_time</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Anamnes']/string50value[@typ='ankomsttid']/value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">ArrivalTime_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Anamnes&quot;]/string50value[@typ=&quot;ankomsttid&quot;]/value']/@starttime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">ArrivalTime_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Anamnes&quot;]/string50value[@typ=&quot;ankomsttid&quot;]/value']/@endtime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">SocialSecurityNumber</item>
+          <item action="ifempty" type="xpathformat">pat_personnr</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">patientED1/personnr</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">Name</item>
+          <item action="ifempty" type="xpathformat">pat_namn</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">patientED1/namn/knamn</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">Sex</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">patientED1/kon</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">VisitReason</item>
+          <item action="ifempty" type="xpathformat">kontaktorsak</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Anamnes']/string100value[@typ='sokorsak']/value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">VisitReason_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&amp;quot;Anamnes&amp;quot;]/string100value[@typ=&amp;quot;sokorsak&amp;quot;]/value']/@starttime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">VisitReason_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&amp;quot;Anamnes&amp;quot;]/string100value[@typ=&amp;quot;sokorsak&amp;quot;]/value']/@endtime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">Place</item>
+          <item action="ifempty" type="xpathformat">placering</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">formlist/formgroup[@typ='Anamnes']/string50value[@typ='rumsnr']/value</item>
+        </target>
+      </row>
+      <!--<row>
+        <source>
+          <item action="replace" type="xpathformat">VisualId</item>
+        </source>
+        <target>
+          <item action="replace"  type="xpath">formlist/formgroup[@typ='PenInfo']/string50value[@typ='VisualID']/value</item>
+        </target>
+      </row>-->
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">StreetAddress</item>
+          <item action="ifempty" type="xpathformat">pat_adress</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">patientED1/adressED1[@typ='H']/adresstypED1[@typ='STR']/del</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">PostalCode</item>
+          <item action="ifempty" type="xpathformat">pat_postnr</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">patientED1/adressED1[@typ='H']/adresstypED1[@typ='PNR']/del</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">Town</item>
+          <item action="ifempty" type="xpathformat">pat_postadress</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">patientED1/adressED1[@typ='H']/adresstypED1[@typ='PAD']/del</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">TriagePriorityRed</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;rod_prio&quot;]/value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">TriagePriorityRed_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;rod_prio&quot;]/value']/@starttime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">TriagePriorityRed_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;rod_prio&quot;]/value']/@endtime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">TriagePriorityOrange</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;orange_prio&quot;]/value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">TriagePriorityOrange_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;orange_prio&quot;]/value']/@starttime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">TriagePriorityOrange_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;orange_prio&quot;]/value']/@endtime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">TriagePriorityYellow</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;gul_prio&quot;]/value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">TriagePriorityYellow_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;gul_prio&quot;]/value']/@starttime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">TriagePriorityYellow_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;gul_prio&quot;]/value']/@endtime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">TriagePriorityGreen</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;gron_prio&quot;]/value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">TriagePriorityGreen_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;gron_prio&quot;]/value']/@starttime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">TriagePriorityGreen_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Process&quot;]/booleanvalue[@typ=&quot;gron_prio&quot;]/value']/@endtime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">TriagePriorityBlue</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Triage&quot;]/booleanvalue[@typ=&quot;blaprio&quot;]/value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">TriagePriorityBlue_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Triage&quot;]/booleanvalue[@typ=&quot;blaprio&quot;]/value']/@starttime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">TriagePriorityBlue_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Triage&quot;]/booleanvalue[@typ=&quot;blaprio&quot;]/value']/@endtime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">Strada</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Anamnes&quot;]/string50value[@typ=&quot;strada&quot;]/value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">Strada_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Anamnes&quot;]/string50value[@typ=&quot;strada&quot;]/value']/@starttime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">Strada_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Anamnes&quot;]/string50value[@typ=&quot;strada&quot;]/value']/@endtime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">Concent</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Anamnes&quot;]/string50value[@typ=&quot;medgivande&quot;]/value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">Concent_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Anamnes&quot;]/string50value[@typ=&quot;medgivande&quot;]/value']/@starttime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">Concent_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Anamnes&quot;]/string50value[@typ=&quot;medgivande&quot;]/value']/@endtime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">ESS</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">formlist/formgroup[@typ=&quot;Triage&quot;]/string50value[@typ=&quot;ess_valdav_tid&quot;]/value</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">ESS_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Triage&quot;]/string50value[@typ=&quot;ess_valdav_tid&quot;]/value']/@starttime</item>
+        </target>
+      </row>
+      <row>
+        <source>
+          <item action="replace" type="xpathformat">ESS_time</item>
+          <item action="ifempty" type="text">2001-01-01T00:00:00</item>
+        </source>
+        <target>
+          <item action="replace" type="xpath">communicationform/formitems/formitem2[@elementid='formlist/formgroup[@typ=&quot;Triage&quot;]/string50value[@typ=&quot;ess_valdav_tid&quot;]/value']/@endtime</item>
+        </target>
+      </row>
+    </rows>
+  </transform>
+</eyedoc>
